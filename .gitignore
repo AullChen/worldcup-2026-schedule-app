@@ -1,0 +1,61 @@
+# Dependencies
+node_modules/
+.pnp/
+.pnp.*
+
+# Build outputs and archives
+dist/
+site.tar.gz
+*.tgz
+*.tar
+*.tar.gz
+*.zip
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+*.local
+*.pem
+*.key
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Runtime and cache files
+.cache/
+.parcel-cache/
+.turbo/
+.vite/
+.wrangler/
+.mf/
+.tmp/
+tmp/
+temp/
+
+# Coverage and reports
+coverage/
+.nyc_output/
+test-results/
+playwright-report/
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# Codex/local automation workspace state
+.agents/
+.codex/

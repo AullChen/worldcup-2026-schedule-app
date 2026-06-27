@@ -1,0 +1,21 @@
+{
+  "name": "worldcup-2026-schedule-app",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A static and Worker-compatible 2026 FIFA World Cup schedule and prediction app.",
+  "license": "MIT",
+  "type": "module",
+  "keywords": [
+    "world-cup",
+    "fifa",
+    "schedule",
+    "github-pages",
+    "cloudflare-workers"
+  ],
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "refresh:check": "node scripts/should-refresh-data.mjs",
+    "refresh:data": "node scripts/refresh-sync-cache.mjs",
+    "validate": "node scripts/validate-artifact.mjs"
+  }
+}
