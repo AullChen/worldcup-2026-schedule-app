@@ -34,6 +34,8 @@ jobs:
       - name: Check refresh window
         id: window
         shell: bash
+        env:
+          REFRESH_WINDOW_MINUTES: 29
         run: npm --silent run refresh:check >> "$GITHUB_OUTPUT"
 
   build:

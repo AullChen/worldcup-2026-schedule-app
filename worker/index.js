@@ -120,7 +120,74 @@ const teamMeta = {
   Panama: { flag: "🇵🇦", code: "PAN", names: { zh: "巴拿马", en: "Panama", es: "Panamá" } },
 };
 
+// Kick-off times are stored in UTC; the UI formats them in the visitor's locale.
 const kickoffUtcByMatchId = {
+  1: "2026-06-11T19:00:00Z",
+  2: "2026-06-12T02:00:00Z",
+  3: "2026-06-12T19:00:00Z",
+  4: "2026-06-13T01:00:00Z",
+  5: "2026-06-14T01:00:00Z",
+  6: "2026-06-14T04:00:00Z",
+  7: "2026-06-13T22:00:00Z",
+  8: "2026-06-13T19:00:00Z",
+  9: "2026-06-14T23:00:00Z",
+  10: "2026-06-14T17:00:00Z",
+  11: "2026-06-14T20:00:00Z",
+  12: "2026-06-15T02:00:00Z",
+  13: "2026-06-15T16:00:00Z",
+  14: "2026-06-15T19:00:00Z",
+  15: "2026-06-15T22:00:00Z",
+  16: "2026-06-16T01:00:00Z",
+  17: "2026-06-16T19:00:00Z",
+  18: "2026-06-16T22:00:00Z",
+  19: "2026-06-17T01:00:00Z",
+  20: "2026-06-17T04:00:00Z",
+  21: "2026-06-17T17:00:00Z",
+  22: "2026-06-17T20:00:00Z",
+  23: "2026-06-17T23:00:00Z",
+  24: "2026-06-18T02:00:00Z",
+  25: "2026-06-18T16:00:00Z",
+  26: "2026-06-18T19:00:00Z",
+  27: "2026-06-18T22:00:00Z",
+  28: "2026-06-19T01:00:00Z",
+  29: "2026-06-19T19:00:00Z",
+  30: "2026-06-19T22:00:00Z",
+  31: "2026-06-20T00:30:00Z",
+  32: "2026-06-20T03:00:00Z",
+  33: "2026-06-20T17:00:00Z",
+  34: "2026-06-20T20:00:00Z",
+  35: "2026-06-21T00:00:00Z",
+  36: "2026-06-21T04:00:00Z",
+  37: "2026-06-21T16:00:00Z",
+  38: "2026-06-21T19:00:00Z",
+  39: "2026-06-21T22:00:00Z",
+  40: "2026-06-22T01:00:00Z",
+  41: "2026-06-22T17:00:00Z",
+  42: "2026-06-22T21:00:00Z",
+  43: "2026-06-23T00:00:00Z",
+  44: "2026-06-23T03:00:00Z",
+  45: "2026-06-23T17:00:00Z",
+  46: "2026-06-23T20:00:00Z",
+  47: "2026-06-23T23:00:00Z",
+  48: "2026-06-24T02:00:00Z",
+  49: "2026-06-24T19:00:00Z",
+  50: "2026-06-24T19:00:00Z",
+  51: "2026-06-24T22:00:00Z",
+  52: "2026-06-24T22:00:00Z",
+  53: "2026-06-25T01:00:00Z",
+  54: "2026-06-25T01:00:00Z",
+  55: "2026-06-25T20:00:00Z",
+  56: "2026-06-25T20:00:00Z",
+  57: "2026-06-25T23:00:00Z",
+  58: "2026-06-25T23:00:00Z",
+  59: "2026-06-26T02:00:00Z",
+  60: "2026-06-26T02:00:00Z",
+  61: "2026-06-26T19:00:00Z",
+  62: "2026-06-26T19:00:00Z",
+  63: "2026-06-27T00:00:00Z",
+  64: "2026-06-27T00:00:00Z",
+  65: "2026-06-27T03:00:00Z",
+  66: "2026-06-27T03:00:00Z",
   67: "2026-06-27T21:00:00Z",
   68: "2026-06-27T21:00:00Z",
   69: "2026-06-27T23:30:00Z",
@@ -1725,7 +1792,7 @@ function renderPage() {
       <div class="hero-inner">
         <div>
           <h1 id="appTitle">2026 世界杯赛程与预测</h1>
-          <p id="heroIntro">查看 104 场比赛、模拟比分和晋级路线。同步结果会缓存在本机，二次打开优先读取缓存；淘汰赛会根据已有结果推导候选球队，并支持树状缩放查看。</p>
+          <p id="heroIntro">查看 104 场比赛、模拟比分和晋级路线。同步结果会缓存在本机，二次打开优先读取缓存；淘汰赛会根据已有结果推导候选球队，并支持阶梯式轮次查看、缩放和拖拽移动。</p>
           <div class="source-links">
             <a id="fixturesLink" href="${FIFA_FIXTURES_URL}" target="_blank" rel="noreferrer">FIFA 官方赛程</a>
             <a id="rulesLink" href="https://digitalhub.fifa.com/m/636f5c9c6f29771f/original/FWC2026_regulations_EN.pdf" target="_blank" rel="noreferrer">FIFA 规则 PDF</a>
@@ -1799,7 +1866,7 @@ function renderPage() {
       const copy = {
         zh: {
           appTitle: "2026 世界杯赛程与预测",
-          heroIntro: "查看 104 场比赛、模拟比分和晋级路线。同步结果会缓存在本机，二次打开优先读取缓存；淘汰赛会根据已有结果推导候选球队，并支持经典双侧树形查看。",
+          heroIntro: "查看 104 场比赛、模拟比分和晋级路线。同步结果会缓存在本机，二次打开优先读取缓存；淘汰赛会根据已有结果推导候选球队，并支持阶梯式轮次查看、缩放和拖拽移动。",
           fixturesLink: "FIFA 官方赛程",
           rulesLink: "FIFA 规则 PDF",
           languageLabel: "语言",
@@ -1822,6 +1889,7 @@ function renderPage() {
           candidateTeams: "候选球队",
           moreTeams: "等 {count} 队",
           stage: "阶段",
+          kickoff: "开球",
           venue: "场馆",
           source: "来源",
           goal: "进球",
@@ -1873,7 +1941,7 @@ function renderPage() {
           heroSummary: "未开始 {scheduled} · 比赛中 {live} · 已结束 {finished}",
           detailStatus: "状态",
           detailScore: "比分",
-          detailDateVenue: "日期/场馆",
+          detailDateVenue: "时间/场馆",
           detailTeams: "球队",
           detailEvents: "比赛事件",
           detailCandidates: "候选球队",
@@ -1889,7 +1957,7 @@ function renderPage() {
         },
         en: {
           appTitle: "2026 World Cup Schedule and Predictor",
-          heroIntro: "Follow all 104 matches, simulate scores, and trace qualification paths. Synced data is cached locally for the next launch; knockout slots show derived candidates in a classic two-sided bracket.",
+          heroIntro: "Follow all 104 matches, simulate scores, and trace qualification paths. Synced data is cached locally for the next launch; knockout slots show derived candidates in a round-by-round bracket with zoom and drag panning.",
           fixturesLink: "FIFA fixtures",
           rulesLink: "FIFA regulations PDF",
           languageLabel: "Language",
@@ -1912,6 +1980,7 @@ function renderPage() {
           candidateTeams: "Candidate teams",
           moreTeams: "{count} more",
           stage: "Stage",
+          kickoff: "Kick-off",
           venue: "Venue",
           source: "Source",
           goal: "Goal",
@@ -1963,7 +2032,7 @@ function renderPage() {
           heroSummary: "Scheduled {scheduled} · Live {live} · Finished {finished}",
           detailStatus: "Status",
           detailScore: "Score",
-          detailDateVenue: "Date / venue",
+          detailDateVenue: "Time / venue",
           detailTeams: "Teams",
           detailEvents: "Match events",
           detailCandidates: "Candidate teams",
@@ -1979,7 +2048,7 @@ function renderPage() {
         },
         es: {
           appTitle: "Calendario y predictor del Mundial 2026",
-          heroIntro: "Sigue los 104 partidos, simula marcadores y revisa las rutas de clasificación. Los datos sincronizados se guardan localmente; las eliminatorias muestran candidatos en un cuadro clásico de dos lados.",
+          heroIntro: "Sigue los 104 partidos, simula marcadores y revisa las rutas de clasificación. Los datos sincronizados se guardan localmente; las eliminatorias muestran candidatos en un cuadro por rondas con zoom y arrastre.",
           fixturesLink: "Calendario FIFA",
           rulesLink: "Reglamento FIFA PDF",
           languageLabel: "Idioma",
@@ -2002,6 +2071,7 @@ function renderPage() {
           candidateTeams: "Equipos candidatos",
           moreTeams: "{count} más",
           stage: "Fase",
+          kickoff: "Inicio",
           venue: "Sede",
           source: "Fuente",
           goal: "Gol",
@@ -2053,7 +2123,7 @@ function renderPage() {
           heroSummary: "Programados {scheduled} · En vivo {live} · Finalizados {finished}",
           detailStatus: "Estado",
           detailScore: "Marcador",
-          detailDateVenue: "Fecha / sede",
+          detailDateVenue: "Hora / sede",
           detailTeams: "Equipos",
           detailEvents: "Eventos del partido",
           detailCandidates: "Equipos candidatos",
@@ -2119,6 +2189,39 @@ function renderPage() {
       function groupLetter(stage) {
         const found = /Group ([A-L])/.exec(stage);
         return found ? found[1] : null;
+      }
+
+      function currentLocale() {
+        if (state.language === "zh") return "zh-CN";
+        if (state.language === "es") return "es-ES";
+        return "en-US";
+      }
+
+      function matchSortTime(match) {
+        const kickoff = Date.parse(match.kickoffUtc || "");
+        if (Number.isFinite(kickoff)) return kickoff;
+        const dateOnly = Date.parse((match.date || "") + "T00:00:00Z");
+        return Number.isFinite(dateOnly) ? dateOnly : Number.MAX_SAFE_INTEGER;
+      }
+
+      function formatMatchTime(match, detailed = false) {
+        const kickoff = Date.parse(match.kickoffUtc || "");
+        if (!Number.isFinite(kickoff)) return match.date || "TBD";
+        return new Intl.DateTimeFormat(currentLocale(), detailed ? {
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: false,
+          timeZoneName: "short",
+        } : {
+          month: "short",
+          day: "numeric",
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: false,
+        }).format(new Date(kickoff));
       }
 
       function isTeam(name) {
@@ -2518,7 +2621,7 @@ function renderPage() {
             (state.activeStage === "淘汰赛" && match.id > 72);
           const statusOk = state.activeStatus === "all" || match.status === state.activeStatus;
           return stageOk && statusOk;
-        }).sort((a, b) => a.date.localeCompare(b.date) || a.id - b.id);
+        }).sort((a, b) => matchSortTime(a) - matchSortTime(b) || a.id - b.id);
       }
 
       function renderGroupedMatches(matches) {
@@ -2543,7 +2646,7 @@ function renderPage() {
         const draw = score && score.home === score.away && match.id > 72;
         const className = "match" + (match.id === 1 ? " opening" : "");
         return '<article class="' + className + '">' +
-          '<div class="match-head"><span>M' + match.id + ' · ' + escapeHtml(match.date) + '</span><span class="badge ' + match.status + '">' + statusLabel(match.status) + '</span></div>' +
+          '<div class="match-head"><span>M' + match.id + ' · ' + escapeHtml(formatMatchTime(match)) + '</span><span class="badge ' + match.status + '">' + statusLabel(match.status) + '</span></div>' +
           '<div class="teams">' + renderTeamSlot(match, "home") + '<div class="score" title="' + scoreTitle + '">' + scoreText + '</div>' + renderTeamSlot(match, "away") + '</div>' +
           renderFacts(match) +
           renderEventPills(match) +
@@ -2577,6 +2680,7 @@ function renderPage() {
         const source = match.source || state.data.source;
         return '<div class="facts">' +
           '<div class="fact-row"><span>' + t("stage") + '</span><span>' + escapeHtml(group ? "Group " + group : labelStage(match.stage)) + '</span></div>' +
+          '<div class="fact-row"><span>' + t("kickoff") + '</span><span>' + escapeHtml(formatMatchTime(match)) + '</span></div>' +
           '<div class="fact-row"><span>' + t("venue") + '</span><span>' + escapeHtml(match.venue) + '</span></div>' +
           '<div class="fact-row"><span>' + t("source") + '</span><span>' + escapeHtml(source) + '</span></div>' +
           '</div>';
@@ -2625,10 +2729,10 @@ function renderPage() {
         const draw = score && score.home === score.away;
         const finalClass = center && match.stage === "Final" ? " final" : "";
         return '<article class="bracket-card' + finalClass + '">' +
-          '<div class="match-head"><span>M' + match.id + ' · ' + escapeHtml(match.date) + '</span><span class="badge ' + match.status + '">' + statusLabel(match.status) + '</span></div>' +
+          '<div class="match-head"><span>M' + match.id + ' · ' + escapeHtml(formatMatchTime(match)) + '</span><span class="badge ' + match.status + '">' + statusLabel(match.status) + '</span></div>' +
           '<div class="bracket-team"><div class="slot-row">' + renderTeamIdentity(getTeam(match, "home"), "home") + '<span class="bracket-score">' + (score ? score.home : "-") + '</span></div>' + renderBracketPicker(match, "home") + '</div>' +
           '<div class="bracket-team"><div class="slot-row">' + renderTeamIdentity(getTeam(match, "away"), "away") + '<span class="bracket-score">' + (score ? score.away : "-") + '</span></div>' + renderBracketPicker(match, "away") + '</div>' +
-          '<div class="facts"><div class="fact-row"><span>' + t("venue") + '</span><span>' + escapeHtml(match.venue) + '</span></div></div>' +
+          '<div class="facts"><div class="fact-row"><span>' + t("kickoff") + '</span><span>' + escapeHtml(formatMatchTime(match)) + '</span></div><div class="fact-row"><span>' + t("venue") + '</span><span>' + escapeHtml(match.venue) + '</span></div></div>' +
           (match.status !== "finished" ? renderPredictionControls(match, prediction, draw) : '') +
           '<button class="details" data-detail="' + match.id + '" type="button">' + t("details") + '</button>' +
           '</article>';
@@ -2877,6 +2981,13 @@ function renderPage() {
             const selection = state.seedSelections[match.id];
             if (selection) {
               ["home", "away"].forEach((side) => {
+                if (isTeam(match[side])) {
+                  if (selection[side]) {
+                    delete selection[side];
+                    changed = true;
+                  }
+                  return;
+                }
                 const picked = selection[side];
                 if (!picked) return;
                 const candidates = slotCandidates(match, side);
@@ -2926,7 +3037,7 @@ function renderPage() {
           '<p><strong>' + t("detailStatus") + '：</strong>' + statusLabel(match.status) + '</p>' +
           '<p><strong>' + t("detailScore") + '：</strong>' + (score ? score.home + ' - ' + score.away + '（' + (score.official ? t("official") : t("predicted")) + '）' : t("notStarted")) + '</p>' +
           '<p><strong>' + t("stage") + '：</strong>' + escapeHtml(groupLetter(match.stage) ? "Group " + groupLetter(match.stage) : labelStage(match.stage)) + '</p>' +
-          '<p><strong>' + t("detailDateVenue") + '：</strong>' + escapeHtml(match.date) + ' · ' + escapeHtml(match.venue) + '</p>' +
+          '<p><strong>' + t("detailDateVenue") + '：</strong>' + escapeHtml(formatMatchTime(match, true)) + ' · ' + escapeHtml(match.venue) + '</p>' +
           '<p><strong>' + t("detailTeams") + '：</strong>' + escapeHtml(teamDetail(home)) + ' vs ' + escapeHtml(teamDetail(away)) + '</p>' +
           '<p><strong>' + t("source") + '：</strong>' + escapeHtml(match.source || state.data.source) + '</p>' +
           '<h3>' + t("detailEvents") + '</h3>' +
@@ -2967,7 +3078,7 @@ function renderPage() {
         document.querySelector("#sideNotice").textContent = t("sideNotice");
         document.querySelector("#closeDialog").textContent = t("close");
         document.querySelector("#languageSelect").value = state.language;
-        document.querySelector("#lastUpdated").textContent = t("lastUpdated", { time: state.lastUpdated ? new Date(state.lastUpdated).toLocaleString(state.language === "zh" ? "zh-CN" : state.language) : t("neverSynced") });
+        document.querySelector("#lastUpdated").textContent = t("lastUpdated", { time: state.lastUpdated ? new Date(state.lastUpdated).toLocaleString(currentLocale()) : t("neverSynced") });
         document.querySelector("#syncStatus").textContent = state.syncMessage;
         const counts = state.data.matches.reduce((acc, match) => {
           acc[match.status] = (acc[match.status] || 0) + 1;
@@ -3059,9 +3170,14 @@ function renderPage() {
           if (!match) return;
           const next = { ...update };
           if (!next.kickoffUtc) delete next.kickoffUtc;
+          if (match.id > 72) {
+            if (next.home && state.data.teamMeta[next.home]) next.homeSeed = next.home;
+            if (next.away && state.data.teamMeta[next.away]) next.awaySeed = next.away;
+          }
           Object.assign(match, next);
           if (remember) state.syncedMatches[update.id] = sanitiseUpdate(update);
         });
+        normaliseKnockoutState();
       }
 
       function sanitiseUpdate(update) {
@@ -3073,6 +3189,8 @@ function renderPage() {
           source: update.source || "",
         };
         if (update.kickoffUtc) clean.kickoffUtc = update.kickoffUtc;
+        if (update.home && state.data.teamMeta[update.home]) clean.home = update.home;
+        if (update.away && state.data.teamMeta[update.away]) clean.away = update.away;
         return clean;
       }
 
@@ -3160,6 +3278,7 @@ function renderPage() {
       }
 
       loadCache();
+      normaliseKnockoutState();
       document.querySelector("#syncButton").addEventListener("click", syncData);
       document.querySelector("#languageSelect").addEventListener("change", (event) => {
         state.language = event.target.value;
@@ -3277,14 +3396,27 @@ function canonicalName(name) {
   return aliases[cleaned] || cleaned;
 }
 
-function findMatchByTeams(homeName, awayName) {
+function resolveKnownTeamName(name) {
+  const target = canonicalName(name);
+  return Object.keys(teamMeta).find((team) => canonicalName(team) === target) || name;
+}
+
+function findMatchByTeams(homeName, awayName, kickoffUtc = "") {
   const home = canonicalName(homeName);
   const away = canonicalName(awayName);
-  return initialData.matches.find((match) => {
+  const teamMatch = initialData.matches.find((match) => {
     const mh = canonicalName(match.home);
     const ma = canonicalName(match.away);
     return (mh === home && ma === away) || (mh === away && ma === home);
   });
+  if (teamMatch) return teamMatch;
+
+  const kickoff = Date.parse(kickoffUtc || "");
+  if (!Number.isFinite(kickoff)) return null;
+  return initialData.matches.find((match) => {
+    if (match.id <= 72 || !match.kickoffUtc) return false;
+    return Math.abs(Date.parse(match.kickoffUtc) - kickoff) <= 90 * 60 * 1000;
+  }) || null;
 }
 
 function mapEspnState(state) {
@@ -3301,7 +3433,7 @@ function parseEspnEvent(event) {
   if (!home || !away) return null;
   const homeName = home.team?.displayName || home.team?.shortDisplayName || home.team?.name;
   const awayName = away.team?.displayName || away.team?.shortDisplayName || away.team?.name;
-  const match = findMatchByTeams(homeName, awayName);
+  const match = findMatchByTeams(homeName, awayName, event.date);
   if (!match) return null;
   const status = mapEspnState(event.status?.type?.state);
   const score = {
@@ -3310,7 +3442,7 @@ function parseEspnEvent(event) {
   };
   const reversed = canonicalName(match.home) === canonicalName(awayName);
   const details = Array.isArray(competition.details) ? competition.details : [];
-  return {
+  const update = {
     id: match.id,
     status,
     kickoffUtc: event.date || match.kickoffUtc || null,
@@ -3323,6 +3455,11 @@ function parseEspnEvent(event) {
     })),
     source: "ESPN public scoreboard API",
   };
+  if (match.id > 72) {
+    update.home = resolveKnownTeamName(reversed ? awayName : homeName);
+    update.away = resolveKnownTeamName(reversed ? homeName : awayName);
+  }
+  return update;
 }
 
 async function fetchEspnUpdates(signal) {

@@ -20,6 +20,8 @@ GitHub Pages is static hosting. It can serve the exported app and `data/sync-cac
 
 The Pages workflow wakes every 5 minutes. `scripts/should-refresh-data.mjs` gates the expensive build/deploy work so it only continues during match refresh windows or the daily 00:00/12:00 UTC refresh.
 
+GitHub scheduled workflows are not guaranteed to run at the exact cron minute. The refresh gate therefore uses a 29-minute tolerance window by default, which may produce repeated cache refreshes near a scheduled checkpoint but is less likely to miss post-kickoff updates.
+
 If public data sources are unreachable during the workflow, `scripts/refresh-sync-cache.mjs` writes a fallback cache and exits successfully. The app still works from the built-in schedule and browser localStorage cache.
 
 ## Optional Worker Backend
