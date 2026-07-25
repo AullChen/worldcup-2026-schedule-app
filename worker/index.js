@@ -364,6 +364,140 @@ const knockoutSchedule = [
   source: "FIFA official knockout bracket",
 }));
 
+const championJourney = [
+  {
+    id: "ESP-1",
+    stage: "Group H",
+    date: "2026-06-15",
+    venue: "Atlanta Stadium",
+    home: "Spain",
+    away: "Cabo Verde",
+    score: [0, 0],
+    goals: [],
+    summary: {
+      zh: "首战并不顺利。西班牙掌控球权，却始终没能拆开佛得角的低位防线；这场闷平也成为后来调整锋线节奏的起点。",
+      en: "The opener was frustrating. Spain controlled the ball but could not break Cabo Verde's deep block, prompting the attacking adjustments that shaped the rest of the run.",
+      es: "El debut fue frustrante. España dominó el balón, pero no rompió el bloque bajo de Cabo Verde; aquel empate impulsó los ajustes ofensivos posteriores.",
+    },
+  },
+  {
+    id: "ESP-2",
+    stage: "Group H",
+    date: "2026-06-21",
+    venue: "Atlanta Stadium",
+    home: "Spain",
+    away: "Saudi Arabia",
+    score: [4, 0],
+    goals: ["10' Lamine Yamal", "21' Mikel Oyarzabal", "24' Mikel Oyarzabal", "49' Hassan Al-Tambakti (OG)"],
+    summary: {
+      zh: "亚马尔在第 10 分钟打开局面，奥亚萨瓦尔三分钟内梅开二度。西班牙用高压和快速回收完成本届赛事第一次全面展示。",
+      en: "Yamal opened the scoring after ten minutes and Oyarzabal struck twice in three minutes. Spain's press and quick recoveries produced their first complete performance.",
+      es: "Yamal abrió el marcador al minuto diez y Oyarzabal firmó dos goles en tres minutos. La presión y las recuperaciones rápidas ofrecieron la primera gran exhibición.",
+    },
+  },
+  {
+    id: "ESP-3",
+    stage: "Group H",
+    date: "2026-06-26",
+    venue: "Guadalajara Stadium",
+    home: "Uruguay",
+    away: "Spain",
+    score: [0, 1],
+    goals: ["42' Alex Baena"],
+    summary: {
+      zh: "巴埃纳在半场前打入唯一进球。面对乌拉圭的强对抗，西班牙守住零封并以小组头名进入淘汰赛。",
+      en: "Baena scored the only goal before half-time. Spain absorbed Uruguay's physical challenge, kept another clean sheet and advanced as group winners.",
+      es: "Baena marcó el único gol antes del descanso. España resistió la intensidad uruguaya, mantuvo la portería a cero y avanzó como primera de grupo.",
+    },
+  },
+  {
+    id: "ESP-4",
+    stage: "Round of 32",
+    date: "2026-07-02",
+    venue: "Los Angeles Stadium",
+    home: "Spain",
+    away: "Austria",
+    score: [3, 0],
+    goals: ["36' Mikel Oyarzabal", "65' Pedro Porro", "89' Mikel Oyarzabal"],
+    summary: {
+      zh: "奥亚萨瓦尔两度终结进攻，波罗头球扩大优势。这是西班牙自 2010 年决赛后首次赢得世界杯淘汰赛。",
+      en: "Oyarzabal finished twice and Porro added a header. It was Spain's first men's World Cup knockout victory since the 2010 final.",
+      es: "Oyarzabal marcó dos veces y Porro añadió un cabezazo. Fue la primera victoria española en una eliminatoria mundialista desde la final de 2010.",
+    },
+  },
+  {
+    id: "ESP-5",
+    stage: "Round of 16",
+    date: "2026-07-06",
+    venue: "Dallas Stadium",
+    home: "Portugal",
+    away: "Spain",
+    score: [0, 1],
+    goals: ["90+1' Mikel Merino"],
+    summary: {
+      zh: "比赛几乎被拖入加时，替补登场的梅里诺在第 91 分钟接费兰直塞完成绝杀，结束葡萄牙的最后抵抗。",
+      en: "Extra time was seconds away when substitute Merino converted Ferran's through-ball in the 91st minute to settle the Iberian contest.",
+      es: "La prórroga parecía inevitable hasta que el suplente Merino convirtió el pase de Ferran en el minuto 91 y decidió el duelo ibérico.",
+    },
+  },
+  {
+    id: "ESP-6",
+    stage: "Quarter-final",
+    date: "2026-07-10",
+    venue: "Los Angeles Stadium",
+    home: "Spain",
+    away: "Belgium",
+    score: [2, 1],
+    goals: ["30' Fabian Ruiz", "41' Charles De Ketelaere", "88' Mikel Merino"],
+    summary: {
+      zh: "法比安首开纪录，德凯特拉雷扳平并终结西班牙 650 分钟不失球纪录。第 88 分钟，梅里诺抓住门将脱手打入制胜球。",
+      en: "Fabian opened the scoring before De Ketelaere ended Spain's 650-minute shutout run. Merino punished a late spill in the 88th minute.",
+      es: "Fabián abrió el marcador y De Ketelaere puso fin a 650 minutos sin encajar. Merino castigó un rechace en el minuto 88.",
+    },
+  },
+  {
+    id: "ESP-7",
+    stage: "Semi-final",
+    date: "2026-07-14",
+    venue: "Dallas Stadium",
+    home: "France",
+    away: "Spain",
+    score: [0, 2],
+    goals: ["22' Mikel Oyarzabal (P)", "58' Pedro Porro"],
+    summary: {
+      zh: "奥亚萨瓦尔罚入点球，波罗在下半场完成团队配合。西班牙限制住此前全胜的法国，时隔 16 年重返决赛。",
+      en: "Oyarzabal converted a penalty and Porro finished a flowing team move. Spain contained previously unbeaten France to return to the final after 16 years.",
+      es: "Oyarzabal convirtió un penalti y Porro culminó una jugada colectiva. España frenó a una Francia invicta y volvió a la final tras 16 años.",
+    },
+  },
+  {
+    id: "ESP-8",
+    stage: "Final",
+    date: "2026-07-19",
+    venue: "New York New Jersey Stadium",
+    home: "Spain",
+    away: "Argentina",
+    score: [1, 0],
+    goals: ["106' Ferran Torres"],
+    summary: {
+      zh: "西班牙在常规时间持续压制，但直到加时第 106 分钟才由费兰·托雷斯接尼科·威廉姆斯助攻破门。第二颗冠军星就此落定。",
+      en: "Spain controlled the final but had to wait until the 106th minute, when Ferran Torres finished Nico Williams' assist to secure the second star.",
+      es: "España controló la final, pero esperó hasta el minuto 106: Ferran Torres remató la asistencia de Nico Williams y aseguró la segunda estrella.",
+    },
+  },
+];
+
+const whatIfConfig = {
+  regions: [
+    { id: "UEFA", format: "pairs", slots: 16, teams: ["ES", "FR", "ENG", "DE", "PT", "NL", "BE", "HR", "IT", "NO", "AT", "CH", "DK", "SE", "CZ", "TR", "SCO", "RS", "PL", "UA", "WAL", "HU", "RO", "GR", "SK", "SI", "GE", "IE", "FI", "IS", "BA", "AL"] },
+    { id: "CAF", format: "pairs", slots: 9, teams: ["MA", "SN", "EG", "DZ", "CI", "GH", "TN", "ZA", "NG", "CM", "ML", "BF", "CD", "AO", "ZM", "GN", "GA", "UG"] },
+    { id: "AFC", format: "pairs", slots: 8, teams: ["JP", "KR", "AU", "IR", "SA", "QA", "IQ", "UZ", "JO", "CN", "ID", "AE", "OM", "BH", "VN", "TH"] },
+    { id: "CONMEBOL", format: "league", slots: 6, teams: ["AR", "BR", "UY", "CO", "EC", "PY", "CL", "PE", "VE", "BO"] },
+    { id: "CONCACAF", format: "pairs", slots: 6, teams: ["US", "MX", "CA", "CR", "PA", "JM", "HN", "SV", "GT", "HT", "TT", "DO"] },
+    { id: "OFC", format: "bracket", slots: 1, teams: ["NZ", "SB", "NC", "FJ", "PG", "VU", "PF", "WS"] },
+  ],
+};
+
 const initialData = {
   generatedAt: new Date().toISOString(),
   source: "FIFA official schedule and regulations, seeded for first render",
@@ -381,6 +515,8 @@ const initialData = {
   fifaRanks,
   teamMeta,
   matches: [...officialSchedule, ...knockoutSchedule],
+  championJourney,
+  whatIfConfig,
 };
 
 const legacyPage = `<!doctype html>
@@ -752,6 +888,20 @@ const legacyPage = `<!doctype html>
         </aside>
       </section>
     </main>
+    <dialog class="champion-dialog" id="championDialog">
+      <div class="celebration-scene">
+        <canvas id="celebrationCanvas" aria-hidden="true"></canvas>
+        <div class="celebration-copy">
+          <p class="champion-kicker" id="celebrationKicker">FIFA WORLD CUP 2026</p>
+          <h2 id="celebrationTitle">祝贺西班牙</h2>
+          <p id="celebrationText">八场比赛，十四粒进球，七次零封。西班牙在纽约捧起队史第二座世界杯冠军奖杯。</p>
+          <div class="celebration-actions">
+            <button class="celebration-primary" id="openChampionReview" type="button">回顾夺冠之路</button>
+            <button class="celebration-secondary" id="closeCelebration" type="button">进入赛程</button>
+          </div>
+        </div>
+      </div>
+    </dialog>
     <dialog id="detailDialog">
       <div class="modal-head" id="detailTitle"></div>
       <div class="modal-body" id="detailBody"></div>
@@ -1741,6 +1891,427 @@ function renderPage() {
         background: var(--soft);
         font-size: 13px;
       }
+      body.focus-view .layout { grid-template-columns: minmax(0, 1fr); }
+      body.focus-view .side { display: none; }
+      body.focus-view #mainView { min-width: 0; }
+      body.focus-view .filters,
+      body.focus-view .view-controls,
+      body.focus-view .meta-row { display: none; }
+      .champion-view {
+        display: grid;
+        gap: 22px;
+      }
+      .champion-cover {
+        min-height: 440px;
+        position: relative;
+        overflow: hidden;
+        display: grid;
+        align-items: end;
+        border-radius: 8px;
+        color: #fff;
+        background:
+          linear-gradient(90deg, rgba(5, 13, 29, .94) 0, rgba(5, 13, 29, .68) 42%, rgba(5, 13, 29, .08) 76%),
+          url("./assets/spain-champions-hero.png") center / cover no-repeat;
+        box-shadow: 0 24px 60px rgba(7, 22, 45, .24);
+      }
+      .champion-cover-copy {
+        position: relative;
+        z-index: 1;
+        width: min(640px, 100%);
+        padding: clamp(24px, 5vw, 64px);
+      }
+      .champion-kicker, .if-kicker {
+        margin: 0 0 10px;
+        color: #ffd14a;
+        font-size: 13px;
+        font-weight: 850;
+        letter-spacing: .12em;
+        text-transform: uppercase;
+      }
+      .champion-cover h2 {
+        margin: 0;
+        max-width: 580px;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(38px, 6vw, 76px);
+        line-height: .98;
+        font-weight: 700;
+      }
+      .champion-cover p {
+        margin: 18px 0 0;
+        max-width: 560px;
+        color: rgba(255,255,255,.84);
+        line-height: 1.65;
+      }
+      .champion-stats {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+      }
+      .champion-stat {
+        min-width: 0;
+        padding: 18px;
+        border-top: 4px solid #f4bf1b;
+        border-radius: 6px;
+        color: #fff;
+        background: #a70d1c;
+      }
+      .champion-stat strong {
+        display: block;
+        font-size: clamp(26px, 4vw, 42px);
+        line-height: 1;
+      }
+      .champion-stat span {
+        display: block;
+        margin-top: 7px;
+        color: rgba(255,255,255,.78);
+        font-size: 13px;
+      }
+      .champion-section-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        align-items: end;
+      }
+      .champion-section-head h2,
+      .if-header h2 {
+        margin: 0;
+        font-size: clamp(26px, 3vw, 38px);
+      }
+      .champion-section-head p,
+      .if-header p {
+        margin: 6px 0 0;
+        color: var(--muted);
+        line-height: 1.55;
+      }
+      .champion-path {
+        position: relative;
+        display: grid;
+        gap: 12px;
+      }
+      .champion-path::before {
+        content: "";
+        position: absolute;
+        left: 24px;
+        top: 30px;
+        bottom: 30px;
+        width: 2px;
+        background: linear-gradient(#c60b1e, #ffc400);
+      }
+      .journey-match {
+        position: relative;
+        display: grid;
+        grid-template-columns: 50px minmax(180px, .72fr) minmax(0, 1.4fr);
+        gap: 16px;
+        align-items: center;
+        min-width: 0;
+        padding: 16px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        box-shadow: 0 10px 28px rgba(17, 43, 86, .06);
+      }
+      .journey-index {
+        position: relative;
+        z-index: 1;
+        width: 34px;
+        height: 34px;
+        display: grid;
+        place-items: center;
+        border: 3px solid #fff;
+        border-radius: 50%;
+        color: #fff;
+        background: #c60b1e;
+        box-shadow: 0 0 0 2px #c60b1e;
+        font-weight: 850;
+      }
+      .journey-stage {
+        color: #9c1421;
+        font-size: 12px;
+        font-weight: 850;
+        text-transform: uppercase;
+      }
+      .journey-scoreline {
+        display: flex;
+        gap: 8px;
+        align-items: baseline;
+        margin-top: 4px;
+        font-weight: 850;
+      }
+      .journey-scoreline strong {
+        color: #08182d;
+        font-size: 28px;
+      }
+      .journey-meta {
+        margin-top: 7px;
+        color: var(--muted);
+        font-size: 12px;
+      }
+      .journey-story {
+        min-width: 0;
+        color: #34414d;
+        line-height: 1.58;
+      }
+      .journey-goals {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        margin-top: 9px;
+      }
+      .journey-goals span {
+        border-radius: 999px;
+        padding: 4px 8px;
+        color: #7e101c;
+        background: #fff0d3;
+        font-size: 12px;
+      }
+      .champion-player-strip {
+        min-height: 260px;
+        border-radius: 8px;
+        background: url("./assets/spain-champions-portraits.png") center / cover no-repeat;
+        box-shadow: inset 0 0 0 1px rgba(255,255,255,.12);
+      }
+      .champion-sources {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .champion-sources a {
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 7px 11px;
+        color: var(--blue);
+        background: #fff;
+        text-decoration: none;
+        font-size: 13px;
+      }
+      .champion-dialog {
+        width: min(1180px, calc(100vw - 24px));
+        max-width: none;
+        color: #fff;
+        background: #07162d;
+        box-shadow: 0 28px 100px rgba(0,0,0,.48);
+      }
+      .champion-dialog::backdrop {
+        background: rgba(2, 8, 20, .82);
+        backdrop-filter: blur(8px);
+      }
+      .celebration-scene {
+        position: relative;
+        min-height: min(720px, calc(100vh - 32px));
+        overflow: hidden;
+        display: grid;
+        align-items: end;
+        background:
+          linear-gradient(90deg, rgba(3, 12, 28, .94) 0, rgba(3, 12, 28, .6) 45%, rgba(3, 12, 28, .1) 78%),
+          url("./assets/spain-champions-hero.png") center / cover no-repeat;
+      }
+      #celebrationCanvas {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+      .celebration-copy {
+        position: relative;
+        z-index: 2;
+        width: min(720px, 100%);
+        padding: clamp(24px, 6vw, 72px);
+      }
+      .celebration-copy h2 {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(46px, 7vw, 82px);
+        line-height: .94;
+      }
+      .celebration-copy p {
+        margin: 18px 0 0;
+        color: rgba(255,255,255,.82);
+        font-size: 16px;
+        line-height: 1.6;
+      }
+      .celebration-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 24px;
+      }
+      .celebration-actions button,
+      .if-action {
+        border: 1px solid rgba(255,255,255,.35);
+        border-radius: 8px;
+        padding: 10px 14px;
+        font-weight: 750;
+      }
+      .celebration-primary {
+        color: #70101a;
+        background: #ffd447;
+      }
+      .celebration-secondary {
+        color: #fff;
+        background: rgba(255,255,255,.12);
+      }
+      .if-view {
+        display: grid;
+        gap: 16px;
+      }
+      .if-header {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 16px;
+        align-items: end;
+        padding: 24px;
+        border-radius: 8px;
+        color: #fff;
+        background:
+          linear-gradient(120deg, rgba(9, 31, 72, .98), rgba(12, 114, 93, .96)),
+          linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px);
+        background-size: auto, 48px 48px;
+      }
+      .if-header p { color: rgba(255,255,255,.72); }
+      .if-header-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: flex-end;
+      }
+      .if-action {
+        border-color: rgba(255,255,255,.24);
+        color: #fff;
+        background: rgba(255,255,255,.1);
+      }
+      .if-action.primary { color: #14213b; background: #ffd447; }
+      .if-phases {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+      }
+      .if-phase {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 12px;
+        text-align: left;
+        color: var(--ink);
+        background: #fff;
+      }
+      .if-phase.active {
+        color: #fff;
+        border-color: transparent;
+        background: linear-gradient(135deg, var(--blue), var(--pitch));
+      }
+      .if-phase[disabled] { opacity: .48; cursor: not-allowed; }
+      .if-phase strong,
+      .if-phase span { display: block; }
+      .if-phase span { margin-top: 4px; font-size: 12px; opacity: .75; }
+      .if-region-list, .if-group-list {
+        display: grid;
+        gap: 10px;
+      }
+      .if-region, .if-group {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+      }
+      .if-region summary, .if-group summary {
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 14px 16px;
+        font-weight: 800;
+      }
+      .if-region summary span, .if-group summary span {
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 650;
+      }
+      .if-match-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+        gap: 8px;
+        padding: 0 12px 12px;
+      }
+      .if-match {
+        min-width: 0;
+        padding: 10px;
+        border: 1px solid #e7edf2;
+        border-radius: 7px;
+        background: #f9fbfd;
+      }
+      .if-match-id {
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 750;
+      }
+      .if-team-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 44px;
+        gap: 8px;
+        align-items: center;
+        margin-top: 7px;
+      }
+      .if-team-name {
+        min-width: 0;
+        overflow-wrap: anywhere;
+        font-size: 13px;
+        font-weight: 750;
+      }
+      .if-score-input {
+        width: 44px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        padding: 6px 4px;
+        text-align: center;
+        background: #fff;
+      }
+      .if-winner-select {
+        width: 100%;
+        margin-top: 8px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        padding: 6px;
+        background: #fff;
+        font-size: 12px;
+      }
+      .if-standings {
+        overflow-x: auto;
+        padding: 0 12px 12px;
+      }
+      .if-knockout-rounds {
+        display: grid;
+        grid-template-columns: repeat(6, minmax(245px, 1fr));
+        gap: 10px;
+        overflow-x: auto;
+        padding-bottom: 8px;
+      }
+      .if-round {
+        display: grid;
+        align-content: start;
+        gap: 8px;
+      }
+      .if-round h3 {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        margin: 0;
+        padding: 8px 0;
+        background: #fbfcff;
+        font-size: 15px;
+      }
+      .if-champion {
+        display: grid;
+        place-items: center;
+        min-height: 220px;
+        padding: 28px;
+        border-radius: 8px;
+        text-align: center;
+        color: #fff;
+        background:
+          radial-gradient(circle at 50% 10%, rgba(255,212,71,.34), transparent 15rem),
+          linear-gradient(135deg, #8f0e1a, #07162d);
+      }
+      .if-champion strong { font-size: clamp(36px, 6vw, 70px); }
+      .if-champion span { margin-top: 8px; color: rgba(255,255,255,.74); }
       .empty {
         padding: 26px;
         border: 1px dashed var(--line);
@@ -1775,6 +2346,10 @@ function renderPage() {
         .hero-inner, .layout, .toolbar { grid-template-columns: 1fr; }
         .toolbar-actions { justify-content: flex-start; }
         .side { position: static; }
+        .journey-match { grid-template-columns: 50px minmax(0, 1fr); }
+        .journey-story { grid-column: 2; }
+        .if-header { grid-template-columns: 1fr; }
+        .if-header-actions { justify-content: flex-start; }
       }
       @media (max-width: 560px) {
         .matches, .group-grid { grid-template-columns: 1fr; }
@@ -1784,6 +2359,16 @@ function renderPage() {
         .score { width: 100%; }
         .predict-row { align-items: stretch; flex-direction: column; }
         .bracket-track { grid-template-columns: repeat(5, 245px); }
+        .champion-cover { min-height: 540px; background-position: 68% center; }
+        .champion-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .champion-player-strip { min-height: 180px; }
+        .celebration-scene { background-position: 66% center; }
+        .celebration-copy { padding-top: 180px; }
+        .if-phases { grid-template-columns: 1fr; }
+        .if-match-grid { grid-template-columns: 1fr; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        #celebrationCanvas { display: none; }
       }
     </style>
   </head>
@@ -1843,6 +2428,20 @@ function renderPage() {
         </aside>
       </section>
     </main>
+    <dialog class="champion-dialog" id="championDialog">
+      <div class="celebration-scene">
+        <canvas id="celebrationCanvas" aria-hidden="true"></canvas>
+        <div class="celebration-copy">
+          <div class="champion-kicker" id="celebrationKicker">2026 FIFA World Cup</div>
+          <h2 id="celebrationTitle">祝贺西班牙！</h2>
+          <p id="celebrationText">西班牙击败阿根廷，第二次捧起世界杯冠军奖杯。</p>
+          <div class="celebration-actions">
+            <button class="celebration-primary" id="openChampionReview" type="button">回顾夺冠之路</button>
+            <button class="celebration-secondary" id="closeCelebration" type="button">进入赛程</button>
+          </div>
+        </div>
+      </div>
+    </dialog>
     <dialog id="detailDialog">
       <div class="modal-head" id="detailTitle"></div>
       <div class="modal-body" id="detailBody"></div>
@@ -1851,7 +2450,8 @@ function renderPage() {
     <script>
       const seedData = ${JSON.stringify(initialData)};
       const cacheKey = "wc2026.schedule.cache.v2";
-      const stageNames = ["全部", "小组赛", "淘汰赛", "数据榜单"];
+      const celebrationKey = "wc2026.champion.celebration.v1";
+      const stageNames = ["全部", "小组赛", "淘汰赛", "数据榜单", "冠军回顾", "If..."];
       const statusNames = [
         ["all", "statusAll"],
         ["scheduled", "scheduled"],
@@ -1859,14 +2459,14 @@ function renderPage() {
         ["finished", "finished"],
       ];
       const stageText = {
-        zh: { "全部": "全部", "小组赛": "小组赛", "淘汰赛": "淘汰赛", "数据榜单": "数据榜单", "Round of 32": "32 强", "Round of 16": "16 强", "Quarter-final": "1/4 决赛", "Semi-final": "半决赛", "Bronze final": "季军赛", "Final": "决赛" },
-        en: { "全部": "All", "小组赛": "Groups", "淘汰赛": "Knockout", "数据榜单": "Stats", "Round of 32": "Round of 32", "Round of 16": "Round of 16", "Quarter-final": "Quarter-final", "Semi-final": "Semi-final", "Bronze final": "Bronze final", "Final": "Final" },
-        es: { "全部": "Todo", "小组赛": "Grupos", "淘汰赛": "Eliminatorias", "数据榜单": "Datos", "Round of 32": "Dieciseisavos", "Round of 16": "Octavos", "Quarter-final": "Cuartos", "Semi-final": "Semifinal", "Bronze final": "Tercer puesto", "Final": "Final" },
+        zh: { "全部": "全部", "小组赛": "小组赛", "淘汰赛": "淘汰赛", "数据榜单": "数据榜单", "冠军回顾": "冠军回顾", "If...": "如果…", "Round of 32": "32 强", "Round of 16": "16 强", "Quarter-final": "1/4 决赛", "Semi-final": "半决赛", "Bronze final": "季军赛", "Final": "决赛" },
+        en: { "全部": "All", "小组赛": "Groups", "淘汰赛": "Knockout", "数据榜单": "Stats", "冠军回顾": "Champions", "If...": "What if...", "Round of 32": "Round of 32", "Round of 16": "Round of 16", "Quarter-final": "Quarter-final", "Semi-final": "Semi-final", "Bronze final": "Bronze final", "Final": "Final" },
+        es: { "全部": "Todo", "小组赛": "Grupos", "淘汰赛": "Eliminatorias", "数据榜单": "Datos", "冠军回顾": "Campeones", "If...": "¿Y si...?", "Round of 32": "Dieciseisavos", "Round of 16": "Octavos", "Quarter-final": "Cuartos", "Semi-final": "Semifinal", "Bronze final": "Tercer puesto", "Final": "Final" },
       };
       const copy = {
         zh: {
           appTitle: "2026 世界杯赛程与预测",
-          heroIntro: "查看 104 场比赛、模拟比分和晋级路线。同步结果会缓存在本机，二次打开优先读取缓存；淘汰赛会根据已有结果推导候选球队，并支持阶梯式轮次查看、缩放和拖拽移动。",
+          heroIntro: "回看 104 场比赛与西班牙的冠军之路，或从预选赛开始重写整届世界杯。同步结果和所有模拟都会缓存在本机。",
           fixturesLink: "FIFA 官方赛程",
           rulesLink: "FIFA 规则 PDF",
           languageLabel: "语言",
@@ -1957,7 +2557,7 @@ function renderPage() {
         },
         en: {
           appTitle: "2026 World Cup Schedule and Predictor",
-          heroIntro: "Follow all 104 matches, simulate scores, and trace qualification paths. Synced data is cached locally for the next launch; knockout slots show derived candidates in a round-by-round bracket with zoom and drag panning.",
+          heroIntro: "Revisit all 104 matches and Spain's championship run, or rewrite the tournament from regional qualifying onward. Synced data and every simulation are cached locally.",
           fixturesLink: "FIFA fixtures",
           rulesLink: "FIFA regulations PDF",
           languageLabel: "Language",
@@ -2048,7 +2648,7 @@ function renderPage() {
         },
         es: {
           appTitle: "Calendario y predictor del Mundial 2026",
-          heroIntro: "Sigue los 104 partidos, simula marcadores y revisa las rutas de clasificación. Los datos sincronizados se guardan localmente; las eliminatorias muestran candidatos en un cuadro por rondas con zoom y arrastre.",
+          heroIntro: "Revive los 104 partidos y el título de España, o reescribe el torneo desde las clasificatorias regionales. Los datos sincronizados y todas las simulaciones se guardan localmente.",
           fixturesLink: "Calendario FIFA",
           rulesLink: "Reglamento FIFA PDF",
           languageLabel: "Idioma",
@@ -2138,6 +2738,138 @@ function renderPage() {
           fifaRank: "Ranking FIFA",
         },
       };
+      Object.assign(copy.zh, {
+        celebrationKicker: "2026 世界杯冠军",
+        celebrationTitle: "祝贺西班牙！",
+        celebrationText: "加时赛击败阿根廷，斗牛士军团第二次捧起世界杯冠军奖杯。",
+        celebrationReview: "回顾夺冠之路",
+        celebrationContinue: "进入赛程",
+        championKicker: "第二颗冠军星",
+        championTitle: "西班牙，世界冠军",
+        championIntro: "从亚特兰大的艰难开局到纽约新泽西的加时绝杀：八场比赛、七场零封，以及一条属于新一代西班牙队的冠军之路。",
+        championMatches: "比赛",
+        championWins: "胜利",
+        championGoals: "进球",
+        championCleanSheets: "零封",
+        championPathTitle: "夺冠之路",
+        championPathIntro: "逐场回看西班牙如何抵达并赢下决赛。",
+        championPlayers: "冠军核心",
+        championSources: "比赛资料",
+        championReplay: "重播庆祝",
+        championHeroCount: "西班牙 2026",
+        championHeroSummary: "世界冠军 · 第二颗冠军星",
+        ifKicker: "重写 2026",
+        ifTitle: "如果……",
+        ifIntro: "从六大洲预选赛开始，逐场改写比分，生成一届完全属于你的世界杯。",
+        ifAutoFill: "智能填充当前阶段",
+        ifReset: "重新开始",
+        ifResetConfirm: "确定清空“如果……”中的全部模拟结果吗？",
+        ifQualifiers: "大区预选赛",
+        ifGroups: "世界杯小组赛",
+        ifKnockout: "世界杯淘汰赛",
+        ifSimplified: "这是用于完整模拟的简化预选赛赛制；它保留各大区名额和晋级逻辑，不复刻每个足联的历史赛程。",
+        ifCompleted: "已完成 {done} / {total} 场",
+        ifLocked: "先完成上一阶段",
+        ifWorldPlayoff: "洲际附加赛",
+        ifStandings: "积分榜",
+        ifTeam: "球队",
+        ifWinner: "平局晋级球队",
+        ifChooseWinner: "请选择晋级球队",
+        ifChampion: "你的 2026 世界冠军",
+        ifAwaitingChampion: "完成决赛后将在这里揭晓冠军",
+        ifTbd: "待定",
+        ifSlots: "{count} 个名额",
+        ifHeroCount: "如果……",
+        ifHeroSummary: "93 + 72 + 32 场完整模拟",
+      });
+      Object.assign(copy.en, {
+        celebrationKicker: "2026 WORLD CHAMPIONS",
+        celebrationTitle: "Congratulations, Spain!",
+        celebrationText: "After beating Argentina in extra time, La Roja lift the World Cup for a second time.",
+        celebrationReview: "Relive the title run",
+        celebrationContinue: "Enter the schedule",
+        championKicker: "A SECOND STAR",
+        championTitle: "Spain, champions of the world",
+        championIntro: "From a difficult opening night in Atlanta to the extra-time winner in New York New Jersey: eight matches, seven clean sheets and a new generation's road to the title.",
+        championMatches: "Matches",
+        championWins: "Wins",
+        championGoals: "Goals",
+        championCleanSheets: "Clean sheets",
+        championPathTitle: "Road to the trophy",
+        championPathIntro: "Every step Spain took to reach and win the final.",
+        championPlayers: "Championship core",
+        championSources: "Match sources",
+        championReplay: "Replay celebration",
+        championHeroCount: "Spain 2026",
+        championHeroSummary: "World champions · a second star",
+        ifKicker: "REWRITE 2026",
+        ifTitle: "What if...",
+        ifIntro: "Start with all six regional qualifiers, change every score and generate a World Cup that ends your way.",
+        ifAutoFill: "Auto-fill this phase",
+        ifReset: "Start over",
+        ifResetConfirm: "Clear every result in the What if simulation?",
+        ifQualifiers: "Regional qualifiers",
+        ifGroups: "World Cup groups",
+        ifKnockout: "World Cup knockout",
+        ifSimplified: "This is a streamlined qualification format for end-to-end simulation. It preserves regional slots and progression, rather than reproducing every confederation's historical fixture system.",
+        ifCompleted: "{done} / {total} matches complete",
+        ifLocked: "Complete the previous phase first",
+        ifWorldPlayoff: "Inter-confederation play-offs",
+        ifStandings: "Standings",
+        ifTeam: "Team",
+        ifWinner: "Advancing team after a draw",
+        ifChooseWinner: "Choose the advancing team",
+        ifChampion: "Your 2026 world champions",
+        ifAwaitingChampion: "Complete the final to reveal your champions",
+        ifTbd: "TBD",
+        ifSlots: "{count} slots",
+        ifHeroCount: "What if...",
+        ifHeroSummary: "93 + 72 + 32-match simulation",
+      });
+      Object.assign(copy.es, {
+        celebrationKicker: "CAMPEONES DEL MUNDO 2026",
+        celebrationTitle: "¡Enhorabuena, España!",
+        celebrationText: "Tras vencer a Argentina en la prórroga, La Roja levanta su segunda Copa del Mundo.",
+        celebrationReview: "Revive el camino al título",
+        celebrationContinue: "Entrar al calendario",
+        championKicker: "LA SEGUNDA ESTRELLA",
+        championTitle: "España, campeona del mundo",
+        championIntro: "De un debut difícil en Atlanta al gol en la prórroga en Nueva York Nueva Jersey: ocho partidos, siete porterías a cero y el camino de una nueva generación.",
+        championMatches: "Partidos",
+        championWins: "Victorias",
+        championGoals: "Goles",
+        championCleanSheets: "Porterías a cero",
+        championPathTitle: "Camino a la Copa",
+        championPathIntro: "Cada paso de España hasta alcanzar y ganar la final.",
+        championPlayers: "Núcleo campeón",
+        championSources: "Fuentes de los partidos",
+        championReplay: "Repetir celebración",
+        championHeroCount: "España 2026",
+        championHeroSummary: "Campeona del mundo · segunda estrella",
+        ifKicker: "REESCRIBE 2026",
+        ifTitle: "¿Y si...?",
+        ifIntro: "Empieza en las seis confederaciones, cambia cada marcador y crea un Mundial con el desenlace que elijas.",
+        ifAutoFill: "Completar esta fase",
+        ifReset: "Empezar de nuevo",
+        ifResetConfirm: "¿Borrar todos los resultados de la simulación?",
+        ifQualifiers: "Clasificatorias regionales",
+        ifGroups: "Grupos del Mundial",
+        ifKnockout: "Eliminatorias del Mundial",
+        ifSimplified: "Este es un formato clasificatorio simplificado para simular todo el torneo. Conserva los cupos y la progresión regional, sin reproducir cada calendario histórico.",
+        ifCompleted: "{done} / {total} partidos completos",
+        ifLocked: "Completa primero la fase anterior",
+        ifWorldPlayoff: "Repechaje intercontinental",
+        ifStandings: "Clasificación",
+        ifTeam: "Equipo",
+        ifWinner: "Equipo clasificado tras el empate",
+        ifChooseWinner: "Elige el equipo clasificado",
+        ifChampion: "Tu campeón del mundo 2026",
+        ifAwaitingChampion: "Completa la final para revelar al campeón",
+        ifTbd: "Por decidir",
+        ifSlots: "{count} cupos",
+        ifHeroCount: "¿Y si...?",
+        ifHeroSummary: "Simulación completa: 93 + 72 + 32",
+      });
       const state = {
         data: structuredClone(seedData),
         predictions: {},
@@ -2153,6 +2885,10 @@ function renderPage() {
         syncMessageKey: "sourceBuiltIn",
         syncMessageParams: {},
         knockoutContext: null,
+        whatIf: {
+          phase: "qualifiers",
+          scores: {},
+        },
       };
       const thirdSlots = {
         74: ["A", "B", "C", "D", "F"],
@@ -2183,6 +2919,12 @@ function renderPage() {
       }
 
       function labelStage(stage) {
+        const group = /^Group ([A-L])$/.exec(stage);
+        if (group) {
+          if (state.language === "zh") return group[1] + " 组";
+          if (state.language === "es") return "Grupo " + group[1];
+          return "Group " + group[1];
+        }
         return (stageText[state.language] && stageText[state.language][stage]) || stageText.zh[stage] || stage;
       }
 
@@ -2530,6 +3272,538 @@ function renderPage() {
         return [...new Set(items.filter(Boolean))];
       }
 
+      const ifTeamOverrides = {
+        ENG: { zh: "英格兰", en: "England", es: "Inglaterra", flag: "🏴" },
+        SCO: { zh: "苏格兰", en: "Scotland", es: "Escocia", flag: "🏴" },
+        WAL: { zh: "威尔士", en: "Wales", es: "Gales", flag: "🏴" },
+      };
+      let celebrationFrame = 0;
+
+      function ifTeamName(code) {
+        if (!code) return t("ifTbd");
+        const override = ifTeamOverrides[code];
+        if (override) return override[state.language] || override.en;
+        try {
+          return new Intl.DisplayNames([currentLocale()], { type: "region" }).of(code) || code;
+        } catch (error) {
+          return code;
+        }
+      }
+
+      function ifTeamFlag(code) {
+        if (!code) return "·";
+        if (ifTeamOverrides[code]) return ifTeamOverrides[code].flag;
+        if (!/^[A-Z]{2}$/.test(code)) return "·";
+        return String.fromCodePoint(...code.split("").map((character) => 127397 + character.charCodeAt(0)));
+      }
+
+      function ifTeamLabel(code) {
+        return ifTeamFlag(code) + " " + ifTeamName(code);
+      }
+
+      function makeIfMatch(id, home, away, requiresWinner, label) {
+        return { id, home: home || "", away: away || "", requiresWinner: Boolean(requiresWinner), label: label || id };
+      }
+
+      function ifScore(match) {
+        const score = state.whatIf.scores[match.id];
+        if (!score || !Number.isInteger(score.home) || !Number.isInteger(score.away)) return null;
+        return score;
+      }
+
+      function ifMatchComplete(match) {
+        const score = ifScore(match);
+        if (!match.home || !match.away || !score) return false;
+        return !match.requiresWinner || score.home !== score.away || [match.home, match.away].includes(score.winner);
+      }
+
+      function ifWinner(match) {
+        const score = ifScore(match);
+        if (!score || !match.home || !match.away) return "";
+        if (score.home > score.away) return match.home;
+        if (score.away > score.home) return match.away;
+        return match.requiresWinner && [match.home, match.away].includes(score.winner) ? score.winner : "";
+      }
+
+      function ifLoser(match) {
+        const winner = ifWinner(match);
+        if (!winner) return "";
+        return winner === match.home ? match.away : match.home;
+      }
+
+      function ifPairMatches(region) {
+        const matches = [];
+        for (let index = 0; index < region.teams.length; index += 2) {
+          matches.push(makeIfMatch("IF-Q-" + region.id + "-" + (index / 2 + 1), region.teams[index], region.teams[index + 1], true));
+        }
+        return matches;
+      }
+
+      function ifLeagueMatches(region) {
+        const matches = [];
+        let matchNumber = 1;
+        for (let home = 0; home < region.teams.length; home += 1) {
+          for (let away = home + 1; away < region.teams.length; away += 1) {
+            matches.push(makeIfMatch("IF-Q-" + region.id + "-" + matchNumber, region.teams[home], region.teams[away], false));
+            matchNumber += 1;
+          }
+        }
+        return matches;
+      }
+
+      function ifOfcMatches(region) {
+        const quarterFinals = [];
+        for (let index = 0; index < region.teams.length; index += 2) {
+          quarterFinals.push(makeIfMatch("IF-Q-OFC-QF-" + (index / 2 + 1), region.teams[index], region.teams[index + 1], true));
+        }
+        const semiFinals = [
+          makeIfMatch("IF-Q-OFC-SF-1", ifWinner(quarterFinals[0]), ifWinner(quarterFinals[1]), true),
+          makeIfMatch("IF-Q-OFC-SF-2", ifWinner(quarterFinals[2]), ifWinner(quarterFinals[3]), true),
+        ];
+        const final = makeIfMatch("IF-Q-OFC-F", ifWinner(semiFinals[0]), ifWinner(semiFinals[1]), true);
+        return { quarterFinals, semiFinals, final, all: [...quarterFinals, ...semiFinals, final] };
+      }
+
+      function ifRegionMatches(region) {
+        if (region.format === "pairs") return ifPairMatches(region);
+        if (region.format === "league") return ifLeagueMatches(region);
+        return ifOfcMatches(region).all;
+      }
+
+      function ifLeagueTable(teams, matches) {
+        const table = Object.fromEntries(teams.map((team) => [team, { team, played: 0, points: 0, gf: 0, ga: 0, gd: 0 }]));
+        matches.forEach((match) => {
+          const score = ifScore(match);
+          if (!score || !table[match.home] || !table[match.away]) return;
+          const home = table[match.home];
+          const away = table[match.away];
+          home.played += 1;
+          away.played += 1;
+          home.gf += score.home;
+          home.ga += score.away;
+          away.gf += score.away;
+          away.ga += score.home;
+          if (score.home > score.away) home.points += 3;
+          else if (score.away > score.home) away.points += 3;
+          else {
+            home.points += 1;
+            away.points += 1;
+          }
+        });
+        return Object.values(table).map((row) => ({ ...row, gd: row.gf - row.ga })).sort((a, b) => (
+          b.points - a.points || b.gd - a.gd || b.gf - a.gf || ifTeamName(a.team).localeCompare(ifTeamName(b.team))
+        ));
+      }
+
+      function bestIfPairLoser(regionId) {
+        const region = state.data.whatIfConfig.regions.find((item) => item.id === regionId);
+        const candidates = ifPairMatches(region).filter(ifMatchComplete).map((match) => {
+          const score = ifScore(match);
+          const loser = ifLoser(match);
+          const loserHome = loser === match.home;
+          return {
+            team: loser,
+            gf: loserHome ? score.home : score.away,
+            gd: loserHome ? score.home - score.away : score.away - score.home,
+          };
+        }).sort((a, b) => b.gf - a.gf || b.gd - a.gd || ifTeamName(a.team).localeCompare(ifTeamName(b.team)));
+        return candidates[0]?.team || "";
+      }
+
+      function ifWorldPlayoffMatches() {
+        const conmebol = state.data.whatIfConfig.regions.find((region) => region.id === "CONMEBOL");
+        const conmebolMatches = ifLeagueMatches(conmebol);
+        const conmebolTable = conmebolMatches.every(ifMatchComplete) ? ifLeagueTable(conmebol.teams, conmebolMatches) : [];
+        const ofc = state.data.whatIfConfig.regions.find((region) => region.id === "OFC");
+        const ofcFinal = ifOfcMatches(ofc).final;
+        return [
+          makeIfMatch("IF-PO-1", conmebolTable[6]?.team, bestIfPairLoser("CAF"), true),
+          makeIfMatch("IF-PO-2", ifLoser(ofcFinal), bestIfPairLoser("AFC"), true),
+        ];
+      }
+
+      function allIfQualifierMatches() {
+        return [
+          ...state.data.whatIfConfig.regions.flatMap(ifRegionMatches),
+          ...ifWorldPlayoffMatches(),
+        ];
+      }
+
+      function ifQualifiedTeams() {
+        if (!allIfQualifierMatches().every(ifMatchComplete)) return [];
+        const qualified = [];
+        state.data.whatIfConfig.regions.forEach((region) => {
+          if (region.format === "pairs") qualified.push(...ifPairMatches(region).map(ifWinner));
+          if (region.format === "league") qualified.push(...ifLeagueTable(region.teams, ifLeagueMatches(region)).slice(0, region.slots).map((row) => row.team));
+          if (region.format === "bracket") qualified.push(ifWinner(ifOfcMatches(region).final));
+        });
+        qualified.push(...ifWorldPlayoffMatches().map(ifWinner));
+        return unique(qualified);
+      }
+
+      function ifGroups() {
+        const teams = ifQualifiedTeams();
+        const groups = Object.fromEntries("ABCDEFGHIJKL".split("").map((group) => [group, []]));
+        teams.forEach((team, index) => groups["ABCDEFGHIJKL"[index % 12]].push(team));
+        return groups;
+      }
+
+      function ifGroupMatches(group, teams) {
+        const pairings = [[0, 1], [2, 3], [0, 2], [3, 1], [3, 0], [1, 2]];
+        return pairings.map(([home, away], index) => makeIfMatch("IF-G-" + group + "-" + (index + 1), teams[home], teams[away], false));
+      }
+
+      function allIfGroupMatches() {
+        return Object.entries(ifGroups()).flatMap(([group, teams]) => ifGroupMatches(group, teams));
+      }
+
+      function ifGroupTables() {
+        return Object.fromEntries(Object.entries(ifGroups()).map(([group, teams]) => [group, ifLeagueTable(teams, ifGroupMatches(group, teams))]));
+      }
+
+      function ifKnockoutRounds() {
+        const tables = ifGroupTables();
+        const complete = allIfGroupMatches().length === 72 && allIfGroupMatches().every(ifMatchComplete);
+        const seeds = [];
+        if (complete) {
+          Object.values(tables).forEach((table) => seeds.push(table[0]?.team, table[1]?.team));
+          const thirds = Object.values(tables).map((table) => table[2]).filter(Boolean).sort((a, b) => (
+            b.points - a.points || b.gd - a.gd || b.gf - a.gf
+          )).slice(0, 8);
+          seeds.push(...thirds.map((row) => row.team));
+        }
+        const roundOf32 = Array.from({ length: 16 }, (_, index) => (
+          makeIfMatch("IF-KO-R32-" + (index + 1), seeds[index], seeds[31 - index], true)
+        ));
+        const roundOf16 = Array.from({ length: 8 }, (_, index) => (
+          makeIfMatch("IF-KO-R16-" + (index + 1), ifWinner(roundOf32[index * 2]), ifWinner(roundOf32[index * 2 + 1]), true)
+        ));
+        const quarterFinals = Array.from({ length: 4 }, (_, index) => (
+          makeIfMatch("IF-KO-QF-" + (index + 1), ifWinner(roundOf16[index * 2]), ifWinner(roundOf16[index * 2 + 1]), true)
+        ));
+        const semiFinals = Array.from({ length: 2 }, (_, index) => (
+          makeIfMatch("IF-KO-SF-" + (index + 1), ifWinner(quarterFinals[index * 2]), ifWinner(quarterFinals[index * 2 + 1]), true)
+        ));
+        const bronze = makeIfMatch("IF-KO-BRONZE", ifLoser(semiFinals[0]), ifLoser(semiFinals[1]), true);
+        const final = makeIfMatch("IF-KO-FINAL", ifWinner(semiFinals[0]), ifWinner(semiFinals[1]), true);
+        return [
+          { key: "R32", label: t("round32"), matches: roundOf32 },
+          { key: "R16", label: t("round16"), matches: roundOf16 },
+          { key: "QF", label: t("quarter"), matches: quarterFinals },
+          { key: "SF", label: t("semi"), matches: semiFinals },
+          { key: "FINALS", label: t("finalWeekend"), matches: [bronze, final] },
+        ];
+      }
+
+      function allIfKnockoutMatches() {
+        return ifKnockoutRounds().flatMap((round) => round.matches);
+      }
+
+      function ifProgress(matches) {
+        return {
+          done: matches.filter(ifMatchComplete).length,
+          total: matches.length,
+        };
+      }
+
+      function renderIfProgress(matches) {
+        const progress = ifProgress(matches);
+        return t("ifCompleted", progress);
+      }
+
+      function renderIfMatch(match) {
+        const score = state.whatIf.scores[match.id] || {};
+        const ready = Boolean(match.home && match.away);
+        const tied = Number.isInteger(score.home) && Number.isInteger(score.away) && score.home === score.away;
+        const disabled = ready ? "" : " disabled";
+        return '<article class="if-match">' +
+          '<div class="if-match-id">' + escapeHtml(match.label || match.id) + '</div>' +
+          renderIfTeamRow(match, "home", score.home, disabled) +
+          renderIfTeamRow(match, "away", score.away, disabled) +
+          (ready && match.requiresWinner && tied ? '<label class="if-match-id">' + t("ifWinner") +
+            '<select class="if-winner-select" data-if-winner="' + match.id + '">' +
+            '<option value="">' + t("ifChooseWinner") + '</option>' +
+            [match.home, match.away].map((team) => '<option value="' + team + '"' + (score.winner === team ? " selected" : "") + '>' + escapeHtml(ifTeamLabel(team)) + '</option>').join("") +
+            '</select></label>' : '') +
+          '</article>';
+      }
+
+      function renderIfTeamRow(match, side, value, disabled) {
+        const team = match[side];
+        return '<label class="if-team-row"><span class="if-team-name">' + escapeHtml(ifTeamLabel(team)) + '</span>' +
+          '<input class="if-score-input" data-if-match="' + match.id + '" data-if-side="' + side + '" type="number" min="0" max="30" value="' + valueOrEmpty(value) + '"' + disabled + '></label>';
+      }
+
+      function renderIfTable(rows, qualifiedCount) {
+        return '<div class="if-standings"><table><thead><tr><th>' + t("ifTeam") + '</th><th>' + t("standingsPlayed") + '</th><th>' + t("standingsPoints") + '</th><th>' + t("standingsGd") + '</th></tr></thead><tbody>' +
+          rows.map((row, index) => '<tr><td class="' + (index < qualifiedCount ? "qual" : "") + '">' + escapeHtml(ifTeamLabel(row.team)) + '</td><td>' + row.played + '</td><td>' + row.points + '</td><td>' + row.gd + '</td></tr>').join("") +
+          '</tbody></table></div>';
+      }
+
+      function renderIfQualifiers() {
+        const regions = state.data.whatIfConfig.regions.map((region, index) => {
+          const matches = ifRegionMatches(region);
+          const table = region.format === "league" ? renderIfTable(ifLeagueTable(region.teams, matches), region.slots) : "";
+          return '<details class="if-region"' + (index < 2 ? " open" : "") + '><summary>' + region.id +
+            '<span>' + renderIfProgress(matches) + ' · ' + t("ifSlots", { count: region.slots }) + '</span></summary>' +
+            table + '<div class="if-match-grid">' + matches.map(renderIfMatch).join("") + '</div></details>';
+        }).join("");
+        const playoffs = ifWorldPlayoffMatches();
+        return '<div class="notice">' + t("ifSimplified") + '</div><div class="if-region-list">' + regions +
+          '<details class="if-region" open><summary>' + t("ifWorldPlayoff") + '<span>' + renderIfProgress(playoffs) + '</span></summary>' +
+          '<div class="if-match-grid">' + playoffs.map(renderIfMatch).join("") + '</div></details></div>';
+      }
+
+      function renderIfGroups() {
+        const groups = ifGroups();
+        return '<div class="if-group-list">' + Object.entries(groups).map(([group, teams], index) => {
+          const matches = ifGroupMatches(group, teams);
+          return '<details class="if-group"' + (index < 2 ? " open" : "") + '><summary>' + labelStage("Group " + group) +
+            '<span>' + renderIfProgress(matches) + '</span></summary>' +
+            renderIfTable(ifLeagueTable(teams, matches), 2) +
+            '<div class="if-match-grid">' + matches.map(renderIfMatch).join("") + '</div></details>';
+        }).join("") + '</div>';
+      }
+
+      function renderIfKnockout() {
+        const rounds = ifKnockoutRounds();
+        const final = rounds[rounds.length - 1].matches.find((match) => match.id === "IF-KO-FINAL");
+        const champion = ifWinner(final);
+        return '<div class="if-knockout-rounds">' + rounds.map((round) => (
+          '<section class="if-round"><h3>' + escapeHtml(round.label) + '</h3>' + round.matches.map(renderIfMatch).join("") + '</section>'
+        )).join("") + '</div><section class="if-champion"><span>' + t("ifChampion") + '</span>' +
+          (champion ? '<strong>' + escapeHtml(ifTeamLabel(champion)) + '</strong>' : '<span>' + t("ifAwaitingChampion") + '</span>') +
+          '</section>';
+      }
+
+      function renderWhatIf() {
+        const qualifiers = allIfQualifierMatches();
+        const qualifierDone = qualifiers.every(ifMatchComplete);
+        const groups = allIfGroupMatches();
+        const groupDone = qualifierDone && groups.length === 72 && groups.every(ifMatchComplete);
+        const phases = [
+          ["qualifiers", "ifQualifiers", qualifiers, true],
+          ["groups", "ifGroups", groups, qualifierDone],
+          ["knockout", "ifKnockout", allIfKnockoutMatches(), groupDone],
+        ];
+        if (!phases.some(([phase, , , enabled]) => phase === state.whatIf.phase && enabled)) state.whatIf.phase = "qualifiers";
+        const activeBody = state.whatIf.phase === "groups" ? renderIfGroups() : state.whatIf.phase === "knockout" ? renderIfKnockout() : renderIfQualifiers();
+        return '<section class="if-view"><header class="if-header"><div><div class="if-kicker">' + t("ifKicker") + '</div><h2>' + t("ifTitle") +
+          '</h2><p>' + t("ifIntro") + '</p></div><div class="if-header-actions">' +
+          '<button class="if-action primary" id="ifAutoFill" type="button">' + t("ifAutoFill") + '</button>' +
+          '<button class="if-action" id="ifReset" type="button">' + t("ifReset") + '</button></div></header>' +
+          '<div class="if-phases">' + phases.map(([phase, key, matches, enabled]) => (
+            '<button class="if-phase ' + (state.whatIf.phase === phase ? "active" : "") + '" data-if-phase="' + phase + '" type="button"' + (enabled ? "" : " disabled") + '><strong>' + t(key) + '</strong><span>' + renderIfProgress(matches) + '</span></button>'
+          )).join("") + '</div>' + activeBody + '</section>';
+      }
+
+      function renderChampionReview() {
+        const journey = state.data.championJourney;
+        const goals = journey.reduce((total, match) => total + (match.home === "Spain" ? match.score[0] : match.score[1]), 0);
+        const wins = journey.filter((match) => (
+          match.home === "Spain" ? match.score[0] > match.score[1] : match.score[1] > match.score[0]
+        )).length;
+        const cleanSheets = journey.filter((match) => (
+          match.home === "Spain" ? match.score[1] === 0 : match.score[0] === 0
+        )).length;
+        const sources = [
+          ["FIFA · Spain v Argentina", "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/spain-argentina-final-report-highlights"],
+          ["FIFA · Knockout bracket", "https://www.fifa.com/en/articles/knockout-stage-match-schedule-bracket"],
+          ["FIFA · Spain v Belgium", "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/spain-belgium-match-report-highlights"],
+          ["All tournament results", "https://www.fourfourtwo.com/competition/all-of-the-world-cup-scores-so-far-at-the-2026-tournament"],
+        ];
+        return '<section class="champion-view"><div class="champion-cover"><div class="champion-cover-copy"><div class="champion-kicker">' + t("championKicker") +
+          '</div><h2>' + t("championTitle") + '</h2><p>' + t("championIntro") + '</p><div class="celebration-actions"><button class="celebration-primary" id="replayCelebration" type="button">' + t("championReplay") + '</button></div></div></div>' +
+          '<div class="champion-stats">' + [
+            [journey.length, "championMatches"],
+            [wins, "championWins"],
+            [goals, "championGoals"],
+            [cleanSheets, "championCleanSheets"],
+          ].map(([value, key]) => '<div class="champion-stat"><strong>' + value + '</strong><span>' + t(key) + '</span></div>').join("") + '</div>' +
+          '<div class="champion-section-head"><div><h2>' + t("championPathTitle") + '</h2><p>' + t("championPathIntro") + '</p></div></div>' +
+          '<div class="champion-path">' + journey.map((match, index) => renderJourneyMatch(match, index)).join("") + '</div>' +
+          '<div class="champion-section-head"><div><h2>' + t("championPlayers") + '</h2></div></div><div class="champion-player-strip" role="img" aria-label="' + escapeHtml(t("championPlayers")) + '"></div>' +
+          '<div class="champion-section-head"><div><h2>' + t("championSources") + '</h2></div></div><div class="champion-sources">' +
+          sources.map(([label, url]) => '<a href="' + url + '" target="_blank" rel="noreferrer">' + escapeHtml(label) + '</a>').join("") +
+          '</div></section>';
+      }
+
+      function renderJourneyMatch(match, index) {
+        const date = new Intl.DateTimeFormat(currentLocale(), { year: "numeric", month: "short", day: "numeric" }).format(new Date(match.date + "T12:00:00Z"));
+        return '<article class="journey-match"><div class="journey-index">' + (index + 1) + '</div><div><div class="journey-stage">' + escapeHtml(labelStage(match.stage)) +
+          '</div><div class="journey-scoreline"><span>' + escapeHtml(displayTeamName(match.home)) + '</span><strong>' + match.score[0] + ' - ' + match.score[1] + '</strong><span>' + escapeHtml(displayTeamName(match.away)) +
+          '</span></div><div class="journey-meta">' + escapeHtml(date + " · " + match.venue) + '</div></div><div class="journey-story">' +
+          escapeHtml(match.summary[state.language] || match.summary.en) +
+          (match.goals.length ? '<div class="journey-goals">' + match.goals.map((goal) => '<span>' + escapeHtml(goal) + '</span>').join("") + '</div>' : "") +
+          '</div></article>';
+      }
+
+      function bindSpecialViewEvents(root) {
+        root.querySelector("#replayCelebration")?.addEventListener("click", showCelebration);
+        root.querySelectorAll("[data-if-phase]").forEach((button) => button.addEventListener("click", () => {
+          state.whatIf.phase = button.dataset.ifPhase;
+          saveCache();
+          render();
+        }));
+        root.querySelectorAll("[data-if-match]").forEach((input) => input.addEventListener("change", onIfScoreChange));
+        root.querySelectorAll("[data-if-winner]").forEach((select) => select.addEventListener("change", onIfWinnerChange));
+        root.querySelector("#ifAutoFill")?.addEventListener("click", autoFillIfPhase);
+        root.querySelector("#ifReset")?.addEventListener("click", () => {
+          if (!window.confirm(t("ifResetConfirm"))) return;
+          state.whatIf = { phase: "qualifiers", scores: {} };
+          saveCache();
+          render();
+        });
+      }
+
+      function onIfScoreChange(event) {
+        const id = event.target.dataset.ifMatch;
+        const side = event.target.dataset.ifSide;
+        const value = event.target.value === "" ? null : Math.max(0, Math.min(30, Number(event.target.value)));
+        state.whatIf.scores[id] = state.whatIf.scores[id] || {};
+        if (value === null || !Number.isInteger(value)) delete state.whatIf.scores[id][side];
+        else state.whatIf.scores[id][side] = value;
+        clearIfDownstream(id);
+        saveCache();
+        requestAnimationFrame(render);
+      }
+
+      function onIfWinnerChange(event) {
+        const id = event.target.dataset.ifWinner;
+        state.whatIf.scores[id] = state.whatIf.scores[id] || {};
+        if (event.target.value) state.whatIf.scores[id].winner = event.target.value;
+        else delete state.whatIf.scores[id].winner;
+        clearIfDownstream(id);
+        saveCache();
+        requestAnimationFrame(render);
+      }
+
+      function clearIfDownstream(id) {
+        const scores = state.whatIf.scores;
+        const removePrefixes = [];
+        if (id.startsWith("IF-Q-") || id.startsWith("IF-PO-")) removePrefixes.push("IF-G-", "IF-KO-");
+        if (id.startsWith("IF-Q-") && !id.startsWith("IF-Q-OFC-")) removePrefixes.push("IF-PO-");
+        if (id.startsWith("IF-Q-OFC-QF-")) removePrefixes.push("IF-Q-OFC-SF-", "IF-Q-OFC-F", "IF-PO-");
+        if (id.startsWith("IF-Q-OFC-SF-")) removePrefixes.push("IF-Q-OFC-F", "IF-PO-");
+        if (id === "IF-Q-OFC-F") removePrefixes.push("IF-PO-");
+        if (id.startsWith("IF-G-")) removePrefixes.push("IF-KO-");
+        const knockoutOrder = ["R32", "R16", "QF", "SF"];
+        const knockoutPart = knockoutOrder.find((part) => id.startsWith("IF-KO-" + part));
+        if (knockoutPart) {
+          const index = knockoutOrder.indexOf(knockoutPart);
+          knockoutOrder.slice(index + 1).forEach((part) => removePrefixes.push("IF-KO-" + part));
+          removePrefixes.push("IF-KO-BRONZE", "IF-KO-FINAL");
+        }
+        Object.keys(scores).forEach((key) => {
+          if (key !== id && removePrefixes.some((prefix) => key.startsWith(prefix))) delete scores[key];
+        });
+      }
+
+      function deterministicIfScore(match) {
+        let hash = 0;
+        const source = match.id + match.home + match.away;
+        for (let index = 0; index < source.length; index += 1) hash = (hash * 31 + source.charCodeAt(index)) >>> 0;
+        if (!match.requiresWinner && hash % 5 === 0) return { home: hash % 3, away: hash % 3 };
+        const homeWins = hash % 3 !== 0;
+        return homeWins ? { home: 2 + hash % 2, away: hash % 2 } : { home: hash % 2, away: 2 + hash % 2 };
+      }
+
+      function autoFillIfPhase() {
+        const phase = state.whatIf.phase;
+        let guard = 0;
+        while (guard < 10) {
+          guard += 1;
+          const matches = phase === "qualifiers" ? allIfQualifierMatches() : phase === "groups" ? allIfGroupMatches() : allIfKnockoutMatches();
+          let changed = false;
+          matches.forEach((match) => {
+            if (!match.home || !match.away || ifMatchComplete(match)) return;
+            state.whatIf.scores[match.id] = deterministicIfScore(match);
+            changed = true;
+          });
+          if (!changed) break;
+        }
+        saveCache();
+        render();
+      }
+
+      function showCelebration() {
+        const dialog = document.querySelector("#championDialog");
+        if (!dialog.open) dialog.showModal();
+        startCelebration();
+      }
+
+      function startCelebration() {
+        cancelAnimationFrame(celebrationFrame);
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        const canvas = document.querySelector("#celebrationCanvas");
+        const context = canvas.getContext("2d");
+        const rect = canvas.getBoundingClientRect();
+        const ratio = Math.min(window.devicePixelRatio || 1, 2);
+        canvas.width = Math.max(1, Math.round(rect.width * ratio));
+        canvas.height = Math.max(1, Math.round(rect.height * ratio));
+        context.setTransform(ratio, 0, 0, ratio, 0, 0);
+        const colors = ["#ffcf31", "#c60b1e", "#ffffff", "#f28c28", "#ffeb7a"];
+        const confetti = Array.from({ length: 130 }, () => ({
+          x: Math.random() * rect.width,
+          y: -Math.random() * rect.height,
+          vx: (Math.random() - .5) * 2,
+          vy: 1.8 + Math.random() * 3,
+          size: 4 + Math.random() * 7,
+          rotation: Math.random() * Math.PI,
+          turn: (Math.random() - .5) * .16,
+          color: colors[Math.floor(Math.random() * colors.length)],
+        }));
+        let sparks = [];
+        let lastBurst = 0;
+        const start = performance.now();
+        function burst() {
+          const x = rect.width * (.18 + Math.random() * .64);
+          const y = rect.height * (.08 + Math.random() * .36);
+          const color = colors[Math.floor(Math.random() * colors.length)];
+          sparks.push(...Array.from({ length: 34 }, (_, index) => {
+            const angle = Math.PI * 2 * index / 34;
+            const speed = 1.5 + Math.random() * 3.2;
+            return { x, y, vx: Math.cos(angle) * speed, vy: Math.sin(angle) * speed, life: 1, color };
+          }));
+        }
+        function draw(now) {
+          const elapsed = now - start;
+          context.clearRect(0, 0, rect.width, rect.height);
+          if (elapsed - lastBurst > 620 && elapsed < 5600) {
+            lastBurst = elapsed;
+            burst();
+          }
+          confetti.forEach((piece) => {
+            piece.x += piece.vx;
+            piece.y += piece.vy;
+            piece.rotation += piece.turn;
+            if (piece.y > rect.height + 12) {
+              piece.y = -12;
+              piece.x = Math.random() * rect.width;
+            }
+            context.save();
+            context.translate(piece.x, piece.y);
+            context.rotate(piece.rotation);
+            context.fillStyle = piece.color;
+            context.fillRect(-piece.size / 2, -piece.size / 3, piece.size, piece.size * .62);
+            context.restore();
+          });
+          sparks.forEach((spark) => {
+            spark.x += spark.vx;
+            spark.y += spark.vy;
+            spark.vy += .035;
+            spark.life -= .018;
+            context.globalAlpha = Math.max(0, spark.life);
+            context.fillStyle = spark.color;
+            context.fillRect(spark.x, spark.y, 3, 3);
+          });
+          context.globalAlpha = 1;
+          sparks = sparks.filter((spark) => spark.life > 0);
+          if (elapsed < 7200 && document.querySelector("#championDialog").open) celebrationFrame = requestAnimationFrame(draw);
+        }
+        celebrationFrame = requestAnimationFrame(draw);
+      }
+
       function renderTabs() {
         const box = document.querySelector("#stageTabs");
         box.innerHTML = stageNames.map((stage) => (
@@ -2586,8 +3860,22 @@ function renderPage() {
       }
 
       function renderMatches() {
-        hydrateKnockouts();
         const list = document.querySelector("#matches");
+        const specialView = state.activeStage === "冠军回顾" || state.activeStage === "If...";
+        document.body.classList.toggle("focus-view", specialView);
+        if (state.activeStage === "冠军回顾") {
+          list.className = "champion-view";
+          list.innerHTML = renderChampionReview();
+          bindSpecialViewEvents(list);
+          return;
+        }
+        if (state.activeStage === "If...") {
+          list.className = "if-view";
+          list.innerHTML = renderWhatIf();
+          bindSpecialViewEvents(list);
+          return;
+        }
+        hydrateKnockouts();
         if (state.activeStage === "数据榜单") {
           list.className = "leader-grid";
           list.innerHTML = renderLeaderboards();
@@ -2631,7 +3919,7 @@ function renderPage() {
           if (group && byGroup[group]) byGroup[group].push(match);
         });
         return Object.entries(byGroup).map(([group, items]) => (
-          '<section class="group-section"><h2>Group ' + group + '</h2><div class="group-grid">' +
+          '<section class="group-section"><h2>' + labelStage("Group " + group) + '</h2><div class="group-grid">' +
           (items.map(renderMatch).join("") || '<div class="empty">' + t("emptyGroup") + '</div>') +
           '</div></section>'
         )).join("");
@@ -2679,7 +3967,7 @@ function renderPage() {
         const group = groupLetter(match.stage);
         const source = match.source || state.data.source;
         return '<div class="facts">' +
-          '<div class="fact-row"><span>' + t("stage") + '</span><span>' + escapeHtml(group ? "Group " + group : labelStage(match.stage)) + '</span></div>' +
+          '<div class="fact-row"><span>' + t("stage") + '</span><span>' + escapeHtml(labelStage(match.stage)) + '</span></div>' +
           '<div class="fact-row"><span>' + t("kickoff") + '</span><span>' + escapeHtml(formatMatchTime(match)) + '</span></div>' +
           '<div class="fact-row"><span>' + t("venue") + '</span><span>' + escapeHtml(match.venue) + '</span></div>' +
           '<div class="fact-row"><span>' + t("source") + '</span><span>' + escapeHtml(source) + '</span></div>' +
@@ -3011,8 +4299,13 @@ function renderPage() {
       }
 
       function renderStandings() {
-        const tables = buildStandings();
         const box = document.querySelector("#standings");
+        if (state.activeStage === "冠军回顾" || state.activeStage === "If...") {
+          box.innerHTML = "";
+          document.querySelector("#thirds").innerHTML = "";
+          return;
+        }
+        const tables = buildStandings();
         box.innerHTML = Object.entries(tables).map(([group, rows]) => (
           '<div><strong>Group ' + group + '</strong><table><thead><tr><th>' + t("standingsTeam") + '</th><th>' + t("standingsPlayed") + '</th><th>' + t("standingsPoints") + '</th><th>' + t("standingsGd") + '</th><th>' + t("standingsGf") + '</th></tr></thead><tbody>' +
           rows.map((row, index) => '<tr><td class="' + (index < 2 ? 'qual' : '') + '">' + escapeHtml(displayTeamName(row.team)) + '</td><td>' + row.played + '</td><td>' + row.points + '</td><td>' + row.gd + '</td><td>' + row.gf + '</td></tr>').join("") +
@@ -3036,7 +4329,7 @@ function renderPage() {
         document.querySelector("#detailBody").innerHTML =
           '<p><strong>' + t("detailStatus") + '：</strong>' + statusLabel(match.status) + '</p>' +
           '<p><strong>' + t("detailScore") + '：</strong>' + (score ? score.home + ' - ' + score.away + '（' + (score.official ? t("official") : t("predicted")) + '）' : t("notStarted")) + '</p>' +
-          '<p><strong>' + t("stage") + '：</strong>' + escapeHtml(groupLetter(match.stage) ? "Group " + groupLetter(match.stage) : labelStage(match.stage)) + '</p>' +
+          '<p><strong>' + t("stage") + '：</strong>' + escapeHtml(labelStage(match.stage)) + '</p>' +
           '<p><strong>' + t("detailDateVenue") + '：</strong>' + escapeHtml(formatMatchTime(match, true)) + ' · ' + escapeHtml(match.venue) + '</p>' +
           '<p><strong>' + t("detailTeams") + '：</strong>' + escapeHtml(teamDetail(home)) + ' vs ' + escapeHtml(teamDetail(away)) + '</p>' +
           '<p><strong>' + t("source") + '：</strong>' + escapeHtml(match.source || state.data.source) + '</p>' +
@@ -3077,6 +4370,11 @@ function renderPage() {
         document.querySelector("#thirdsTitle").textContent = t("thirdsTitle");
         document.querySelector("#sideNotice").textContent = t("sideNotice");
         document.querySelector("#closeDialog").textContent = t("close");
+        document.querySelector("#celebrationKicker").textContent = t("celebrationKicker");
+        document.querySelector("#celebrationTitle").textContent = t("celebrationTitle");
+        document.querySelector("#celebrationText").textContent = t("celebrationText");
+        document.querySelector("#openChampionReview").textContent = t("celebrationReview");
+        document.querySelector("#closeCelebration").textContent = t("celebrationContinue");
         document.querySelector("#languageSelect").value = state.language;
         document.querySelector("#lastUpdated").textContent = t("lastUpdated", { time: state.lastUpdated ? new Date(state.lastUpdated).toLocaleString(currentLocale()) : t("neverSynced") });
         document.querySelector("#syncStatus").textContent = state.syncMessage;
@@ -3084,8 +4382,16 @@ function renderPage() {
           acc[match.status] = (acc[match.status] || 0) + 1;
           return acc;
         }, {});
-        document.querySelector("#heroCount").textContent = t("heroCount", { count: state.data.matches.length });
-        document.querySelector("#heroSummary").textContent = t("heroSummary", { scheduled: counts.scheduled || 0, live: counts.live || 0, finished: counts.finished || 0 });
+        if (state.activeStage === "冠军回顾") {
+          document.querySelector("#heroCount").textContent = t("championHeroCount");
+          document.querySelector("#heroSummary").textContent = t("championHeroSummary");
+        } else if (state.activeStage === "If...") {
+          document.querySelector("#heroCount").textContent = t("ifHeroCount");
+          document.querySelector("#heroSummary").textContent = t("ifHeroSummary");
+        } else {
+          document.querySelector("#heroCount").textContent = t("heroCount", { count: state.data.matches.length });
+          document.querySelector("#heroSummary").textContent = t("heroSummary", { scheduled: counts.scheduled || 0, live: counts.live || 0, finished: counts.finished || 0 });
+        }
       }
 
       function render() {
@@ -3205,6 +4511,7 @@ function renderPage() {
             matches: Object.values(state.syncedMatches),
             predictions: state.predictions,
             seedSelections: state.seedSelections,
+            whatIf: state.whatIf,
             settings: {
               activeStage: state.activeStage,
               activeStatus: state.activeStatus,
@@ -3227,6 +4534,12 @@ function renderPage() {
           mergeUpdates({ matches: cached.matches || [] }, false);
           state.predictions = cached.predictions || {};
           state.seedSelections = cached.seedSelections || {};
+          if (cached.whatIf && cached.whatIf.scores) {
+            state.whatIf = {
+              phase: ["qualifiers", "groups", "knockout"].includes(cached.whatIf.phase) ? cached.whatIf.phase : "qualifiers",
+              scores: cached.whatIf.scores,
+            };
+          }
           state.lastUpdated = cached.lastUpdated || null;
           state.syncMessage = cached.syncMessage || "";
           state.syncMessageKey = cached.lastUpdated ? "cachedAt" : cached.syncMessageKey || "sourceBuiltIn";
@@ -3286,7 +4599,23 @@ function renderPage() {
         render();
       });
       document.querySelector("#closeDialog").addEventListener("click", () => document.querySelector("#detailDialog").close());
+      document.querySelector("#closeCelebration").addEventListener("click", () => document.querySelector("#championDialog").close());
+      document.querySelector("#openChampionReview").addEventListener("click", () => {
+        document.querySelector("#championDialog").close();
+        state.activeStage = "冠军回顾";
+        saveCache();
+        render();
+      });
+      document.querySelector("#championDialog").addEventListener("close", () => cancelAnimationFrame(celebrationFrame));
       render();
+      try {
+        if (!sessionStorage.getItem(celebrationKey)) {
+          sessionStorage.setItem(celebrationKey, "shown");
+          requestAnimationFrame(showCelebration);
+        }
+      } catch (error) {
+        requestAnimationFrame(showCelebration);
+      }
     </script>
   </body>
 </html>`;

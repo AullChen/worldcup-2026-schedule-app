@@ -1,4 +1,4 @@
-import { mkdir, writeFile } from "node:fs/promises";
+import { cp, mkdir, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import worker, { initialData } from "../worker/index.js";
@@ -6,8 +6,10 @@ import worker, { initialData } from "../worker/index.js";
 const projectRoot = resolve(fileURLToPath(new URL("..", import.meta.url)));
 const distRoot = resolve(projectRoot, "dist");
 const dataRoot = resolve(distRoot, "data");
+const assetsRoot = resolve(distRoot, "assets");
 
 await mkdir(dataRoot, { recursive: true });
+await cp(resolve(projectRoot, "assets"), assetsRoot, { recursive: true });
 
 const response = await worker.fetch(new Request("https://worldcup-2026.local/"), {}, {});
 if (!response.ok) {
