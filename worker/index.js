@@ -2277,6 +2277,63 @@ function renderPage() {
         overflow-x: auto;
         padding: 0 12px 12px;
       }
+      .if-team-picker {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+        gap: 8px;
+        padding: 0 12px 12px;
+      }
+      .if-team-choice {
+        min-width: 0;
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        border: 1px solid #dce5eb;
+        border-radius: 7px;
+        padding: 9px 10px;
+        text-align: left;
+        color: var(--ink);
+        background: #f9fbfd;
+      }
+      .if-team-choice span:last-child {
+        min-width: 0;
+        overflow-wrap: anywhere;
+        font-size: 13px;
+        font-weight: 750;
+      }
+      .if-team-choice.selected {
+        color: #fff;
+        border-color: #087963;
+        background: linear-gradient(135deg, #087963, #0b5ea8);
+        box-shadow: inset 0 0 0 1px rgba(255,255,255,.18);
+      }
+      .if-team-choice[disabled] {
+        cursor: not-allowed;
+        opacity: .42;
+      }
+      .if-team-choice .choice-flag {
+        width: 28px;
+        aspect-ratio: 4 / 3;
+        flex: 0 0 auto;
+        overflow: hidden;
+        display: block;
+        border: 1px solid rgba(14, 38, 58, .14);
+        border-radius: 3px;
+        background: #fff;
+      }
+      .if-team-choice .choice-flag img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .if-selection-note {
+        margin: 0;
+        padding: 0 16px 12px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.5;
+      }
       .if-knockout-rounds {
         display: grid;
         grid-template-columns: repeat(6, minmax(245px, 1fr));
@@ -2312,6 +2369,87 @@ function renderPage() {
       }
       .if-champion strong { font-size: clamp(36px, 6vw, 70px); }
       .if-champion span { margin-top: 8px; color: rgba(255,255,255,.74); }
+      .if-champion .if-action { margin-top: 18px; }
+      .if-champion-dialog {
+        width: min(920px, calc(100vw - 24px));
+        max-width: none;
+        color: #fff;
+        background: #06172e;
+      }
+      .if-champion-dialog::backdrop {
+        background: rgba(2, 8, 20, .82);
+        backdrop-filter: blur(8px);
+      }
+      .if-champion-scene {
+        position: relative;
+        min-height: min(650px, calc(100vh - 32px));
+        overflow: hidden;
+        display: grid;
+        place-items: center;
+        padding: 34px;
+        text-align: center;
+        background:
+          radial-gradient(circle at 18% 18%, rgba(255, 210, 64, .34), transparent 24%),
+          radial-gradient(circle at 82% 32%, rgba(22, 176, 143, .28), transparent 28%),
+          linear-gradient(145deg, #07162d 0%, #8f1023 56%, #0b7b67 100%);
+      }
+      #ifChampionCanvas {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+      .if-champion-copy {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        justify-items: center;
+        max-width: 700px;
+      }
+      .if-champion-trophy {
+        font-size: clamp(84px, 15vw, 150px);
+        filter: drop-shadow(0 20px 25px rgba(0,0,0,.34));
+        animation: trophy-arrival .8s cubic-bezier(.2,.9,.25,1.2) both;
+      }
+      .if-champion-flag {
+        margin-top: -24px;
+        width: clamp(92px, 14vw, 150px);
+        aspect-ratio: 3 / 2;
+        position: relative;
+        overflow: hidden;
+        display: grid;
+        place-items: center;
+        border: 3px solid rgba(255,255,255,.9);
+        border-radius: 7px;
+        color: #fff;
+        background: rgba(255,255,255,.12);
+        font-size: 28px;
+        font-weight: 850;
+        filter: drop-shadow(0 10px 16px rgba(0,0,0,.3));
+      }
+      .if-champion-flag img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .if-champion-copy h2 {
+        margin: 14px 0 0;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(38px, 7vw, 72px);
+        line-height: 1;
+      }
+      .if-champion-copy p {
+        margin: 14px 0 0;
+        color: rgba(255,255,255,.78);
+        font-size: 16px;
+      }
+      @keyframes trophy-arrival {
+        from { opacity: 0; transform: translateY(60px) scale(.7) rotate(-8deg); }
+        to { opacity: 1; transform: translateY(0) scale(1) rotate(0); }
+      }
       .empty {
         padding: 26px;
         border: 1px dashed var(--line);
@@ -2366,9 +2504,12 @@ function renderPage() {
         .celebration-copy { padding-top: 180px; }
         .if-phases { grid-template-columns: 1fr; }
         .if-match-grid { grid-template-columns: 1fr; }
+        .if-team-picker { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .if-champion-scene { min-height: 620px; padding: 22px; }
       }
       @media (prefers-reduced-motion: reduce) {
-        #celebrationCanvas { display: none; }
+        #celebrationCanvas, #ifChampionCanvas { display: none; }
+        .if-champion-trophy { animation: none; }
       }
     </style>
   </head>
@@ -2438,6 +2579,20 @@ function renderPage() {
           <div class="celebration-actions">
             <button class="celebration-primary" id="openChampionReview" type="button">回顾夺冠之路</button>
             <button class="celebration-secondary" id="closeCelebration" type="button">进入赛程</button>
+          </div>
+        </div>
+      </div>
+    </dialog>
+    <dialog class="if-champion-dialog" id="ifChampionDialog">
+      <div class="if-champion-scene">
+        <canvas id="ifChampionCanvas" aria-hidden="true"></canvas>
+        <div class="if-champion-copy">
+          <div class="if-champion-trophy" aria-hidden="true">🏆</div>
+          <div class="if-champion-flag"><span id="ifChampionFlagFallback"></span><img id="ifChampionFlag" alt=""></div>
+          <h2 id="ifChampionTitle"></h2>
+          <p id="ifChampionText"></p>
+          <div class="celebration-actions">
+            <button class="celebration-primary" id="closeIfChampion" type="button">继续查看</button>
           </div>
         </div>
       </div>
@@ -2760,15 +2915,18 @@ function renderPage() {
         championHeroSummary: "世界冠军 · 第二颗冠军星",
         ifKicker: "重写 2026",
         ifTitle: "如果……",
-        ifIntro: "从六大洲预选赛开始，逐场改写比分，生成一届完全属于你的世界杯。",
+        ifIntro: "从六大区直接选择 48 支晋级队，再逐场改写小组赛与淘汰赛，生成一届完全属于你的世界杯。",
         ifAutoFill: "智能填充当前阶段",
         ifReset: "重新开始",
         ifResetConfirm: "确定清空“如果……”中的全部模拟结果吗？",
         ifQualifiers: "大区预选赛",
         ifGroups: "世界杯小组赛",
         ifKnockout: "世界杯淘汰赛",
-        ifSimplified: "这是用于完整模拟的简化预选赛赛制；它保留各大区名额和晋级逻辑，不复刻每个足联的历史赛程。",
+        ifSimplified: "直接选择每个大区的晋级国家；各区名额选满后，再从其余球队中选择 2 支洲际附加赛晋级队。",
         ifCompleted: "已完成 {done} / {total} 场",
+        ifSelected: "已选择 {done} / {total} 队",
+        ifSelectionHint: "可同时选择同一区的强队，选满 {count} 支后仍可取消并重新选择。",
+        ifPlayoffHint: "从尚未直接晋级的球队中选择 2 支洲际附加赛晋级队。",
         ifLocked: "先完成上一阶段",
         ifWorldPlayoff: "洲际附加赛",
         ifStandings: "积分榜",
@@ -2777,10 +2935,14 @@ function renderPage() {
         ifChooseWinner: "请选择晋级球队",
         ifChampion: "你的 2026 世界冠军",
         ifAwaitingChampion: "完成决赛后将在这里揭晓冠军",
+        ifCelebrateAgain: "再次庆祝",
+        ifChampionCongrats: "{team}，世界冠军！",
+        ifChampionText: "你模拟的世界杯已经结束，冠军奖杯属于 {team}。",
+        ifChampionContinue: "继续查看",
         ifTbd: "待定",
         ifSlots: "{count} 个名额",
         ifHeroCount: "如果……",
-        ifHeroSummary: "93 + 72 + 32 场完整模拟",
+        ifHeroSummary: "选择 48 队 · 模拟 72 + 32 场",
       });
       Object.assign(copy.en, {
         celebrationKicker: "2026 WORLD CHAMPIONS",
@@ -2804,15 +2966,18 @@ function renderPage() {
         championHeroSummary: "World champions · a second star",
         ifKicker: "REWRITE 2026",
         ifTitle: "What if...",
-        ifIntro: "Start with all six regional qualifiers, change every score and generate a World Cup that ends your way.",
+        ifIntro: "Choose all 48 qualifiers across six regions, then rewrite every group and knockout match to build your own World Cup.",
         ifAutoFill: "Auto-fill this phase",
         ifReset: "Start over",
         ifResetConfirm: "Clear every result in the What if simulation?",
         ifQualifiers: "Regional qualifiers",
         ifGroups: "World Cup groups",
         ifKnockout: "World Cup knockout",
-        ifSimplified: "This is a streamlined qualification format for end-to-end simulation. It preserves regional slots and progression, rather than reproducing every confederation's historical fixture system.",
+        ifSimplified: "Choose each region's direct qualifiers, then select two inter-confederation play-off qualifiers from the remaining teams.",
         ifCompleted: "{done} / {total} matches complete",
+        ifSelected: "{done} / {total} teams selected",
+        ifSelectionHint: "Strong teams from the same region can qualify together. After selecting {count}, deselect any team to change the list.",
+        ifPlayoffHint: "Choose two inter-confederation play-off qualifiers from teams without a direct place.",
         ifLocked: "Complete the previous phase first",
         ifWorldPlayoff: "Inter-confederation play-offs",
         ifStandings: "Standings",
@@ -2821,10 +2986,14 @@ function renderPage() {
         ifChooseWinner: "Choose the advancing team",
         ifChampion: "Your 2026 world champions",
         ifAwaitingChampion: "Complete the final to reveal your champions",
+        ifCelebrateAgain: "Celebrate again",
+        ifChampionCongrats: "{team}, champions of the world!",
+        ifChampionText: "Your simulated World Cup is complete. The trophy belongs to {team}.",
+        ifChampionContinue: "Continue",
         ifTbd: "TBD",
         ifSlots: "{count} slots",
         ifHeroCount: "What if...",
-        ifHeroSummary: "93 + 72 + 32-match simulation",
+        ifHeroSummary: "Choose 48 · simulate 72 + 32 matches",
       });
       Object.assign(copy.es, {
         celebrationKicker: "CAMPEONES DEL MUNDO 2026",
@@ -2848,15 +3017,18 @@ function renderPage() {
         championHeroSummary: "Campeona del mundo · segunda estrella",
         ifKicker: "REESCRIBE 2026",
         ifTitle: "¿Y si...?",
-        ifIntro: "Empieza en las seis confederaciones, cambia cada marcador y crea un Mundial con el desenlace que elijas.",
+        ifIntro: "Elige las 48 selecciones clasificadas de las seis regiones y después reescribe cada partido de grupos y eliminatorias.",
         ifAutoFill: "Completar esta fase",
         ifReset: "Empezar de nuevo",
         ifResetConfirm: "¿Borrar todos los resultados de la simulación?",
         ifQualifiers: "Clasificatorias regionales",
         ifGroups: "Grupos del Mundial",
         ifKnockout: "Eliminatorias del Mundial",
-        ifSimplified: "Este es un formato clasificatorio simplificado para simular todo el torneo. Conserva los cupos y la progresión regional, sin reproducir cada calendario histórico.",
+        ifSimplified: "Elige los clasificados directos de cada región y después dos equipos de repechaje entre las selecciones restantes.",
         ifCompleted: "{done} / {total} partidos completos",
+        ifSelected: "{done} / {total} selecciones elegidas",
+        ifSelectionHint: "Varias potencias de una región pueden clasificarse juntas. Tras elegir {count}, puedes desmarcar cualquier equipo.",
+        ifPlayoffHint: "Elige dos clasificados del repechaje entre los equipos sin plaza directa.",
         ifLocked: "Completa primero la fase anterior",
         ifWorldPlayoff: "Repechaje intercontinental",
         ifStandings: "Clasificación",
@@ -2865,10 +3037,14 @@ function renderPage() {
         ifChooseWinner: "Elige el equipo clasificado",
         ifChampion: "Tu campeón del mundo 2026",
         ifAwaitingChampion: "Completa la final para revelar al campeón",
+        ifCelebrateAgain: "Celebrar de nuevo",
+        ifChampionCongrats: "¡{team}, campeón del mundo!",
+        ifChampionText: "Tu Mundial simulado ha terminado. La Copa pertenece a {team}.",
+        ifChampionContinue: "Continuar",
         ifTbd: "Por decidir",
         ifSlots: "{count} cupos",
         ifHeroCount: "¿Y si...?",
-        ifHeroSummary: "Simulación completa: 93 + 72 + 32",
+        ifHeroSummary: "Elige 48 · simula 72 + 32 partidos",
       });
       const state = {
         data: structuredClone(seedData),
@@ -2888,6 +3064,9 @@ function renderPage() {
         whatIf: {
           phase: "qualifiers",
           scores: {},
+          qualifiers: {},
+          playoff: [],
+          celebratedChampion: "",
         },
       };
       const thirdSlots = {
@@ -3297,6 +3476,11 @@ function renderPage() {
         return String.fromCodePoint(...code.split("").map((character) => 127397 + character.charCodeAt(0)));
       }
 
+      function ifTeamFlagImage(code) {
+        const flagCode = String(code || "").toLowerCase();
+        return /^[a-z]{2,3}$/.test(flagCode) ? "./assets/flags/" + flagCode + ".svg" : "";
+      }
+
       function ifTeamLabel(code) {
         return ifTeamFlag(code) + " " + ifTeamName(code);
       }
@@ -3331,45 +3515,6 @@ function renderPage() {
         return winner === match.home ? match.away : match.home;
       }
 
-      function ifPairMatches(region) {
-        const matches = [];
-        for (let index = 0; index < region.teams.length; index += 2) {
-          matches.push(makeIfMatch("IF-Q-" + region.id + "-" + (index / 2 + 1), region.teams[index], region.teams[index + 1], true));
-        }
-        return matches;
-      }
-
-      function ifLeagueMatches(region) {
-        const matches = [];
-        let matchNumber = 1;
-        for (let home = 0; home < region.teams.length; home += 1) {
-          for (let away = home + 1; away < region.teams.length; away += 1) {
-            matches.push(makeIfMatch("IF-Q-" + region.id + "-" + matchNumber, region.teams[home], region.teams[away], false));
-            matchNumber += 1;
-          }
-        }
-        return matches;
-      }
-
-      function ifOfcMatches(region) {
-        const quarterFinals = [];
-        for (let index = 0; index < region.teams.length; index += 2) {
-          quarterFinals.push(makeIfMatch("IF-Q-OFC-QF-" + (index / 2 + 1), region.teams[index], region.teams[index + 1], true));
-        }
-        const semiFinals = [
-          makeIfMatch("IF-Q-OFC-SF-1", ifWinner(quarterFinals[0]), ifWinner(quarterFinals[1]), true),
-          makeIfMatch("IF-Q-OFC-SF-2", ifWinner(quarterFinals[2]), ifWinner(quarterFinals[3]), true),
-        ];
-        const final = makeIfMatch("IF-Q-OFC-F", ifWinner(semiFinals[0]), ifWinner(semiFinals[1]), true);
-        return { quarterFinals, semiFinals, final, all: [...quarterFinals, ...semiFinals, final] };
-      }
-
-      function ifRegionMatches(region) {
-        if (region.format === "pairs") return ifPairMatches(region);
-        if (region.format === "league") return ifLeagueMatches(region);
-        return ifOfcMatches(region).all;
-      }
-
       function ifLeagueTable(teams, matches) {
         const table = Object.fromEntries(teams.map((team) => [team, { team, played: 0, points: 0, gf: 0, ga: 0, gd: 0 }]));
         matches.forEach((match) => {
@@ -3395,50 +3540,54 @@ function renderPage() {
         ));
       }
 
-      function bestIfPairLoser(regionId) {
-        const region = state.data.whatIfConfig.regions.find((item) => item.id === regionId);
-        const candidates = ifPairMatches(region).filter(ifMatchComplete).map((match) => {
-          const score = ifScore(match);
-          const loser = ifLoser(match);
-          const loserHome = loser === match.home;
-          return {
-            team: loser,
-            gf: loserHome ? score.home : score.away,
-            gd: loserHome ? score.home - score.away : score.away - score.home,
-          };
-        }).sort((a, b) => b.gf - a.gf || b.gd - a.gd || ifTeamName(a.team).localeCompare(ifTeamName(b.team)));
-        return candidates[0]?.team || "";
+      function normaliseIfQualifierState() {
+        state.whatIf.qualifiers = state.whatIf.qualifiers && typeof state.whatIf.qualifiers === "object" ? state.whatIf.qualifiers : {};
+        const allTeams = new Set(state.data.whatIfConfig.regions.flatMap((region) => region.teams));
+        state.data.whatIfConfig.regions.forEach((region) => {
+          state.whatIf.qualifiers[region.id] = unique(state.whatIf.qualifiers[region.id] || [])
+            .filter((team) => region.teams.includes(team))
+            .slice(0, region.slots);
+        });
+        const directlyQualified = new Set(Object.values(state.whatIf.qualifiers).flat());
+        state.whatIf.playoff = unique(state.whatIf.playoff || [])
+          .filter((team) => allTeams.has(team) && !directlyQualified.has(team))
+          .slice(0, 2);
+        state.whatIf.celebratedChampion = state.whatIf.celebratedChampion || "";
       }
 
-      function ifWorldPlayoffMatches() {
-        const conmebol = state.data.whatIfConfig.regions.find((region) => region.id === "CONMEBOL");
-        const conmebolMatches = ifLeagueMatches(conmebol);
-        const conmebolTable = conmebolMatches.every(ifMatchComplete) ? ifLeagueTable(conmebol.teams, conmebolMatches) : [];
-        const ofc = state.data.whatIfConfig.regions.find((region) => region.id === "OFC");
-        const ofcFinal = ifOfcMatches(ofc).final;
-        return [
-          makeIfMatch("IF-PO-1", conmebolTable[6]?.team, bestIfPairLoser("CAF"), true),
-          makeIfMatch("IF-PO-2", ifLoser(ofcFinal), bestIfPairLoser("AFC"), true),
-        ];
+      function ifDirectSelectionComplete() {
+        normaliseIfQualifierState();
+        return state.data.whatIfConfig.regions.every((region) => state.whatIf.qualifiers[region.id].length === region.slots);
       }
 
-      function allIfQualifierMatches() {
-        return [
-          ...state.data.whatIfConfig.regions.flatMap(ifRegionMatches),
-          ...ifWorldPlayoffMatches(),
-        ];
+      function ifQualifierProgress() {
+        normaliseIfQualifierState();
+        return {
+          done: Object.values(state.whatIf.qualifiers).flat().length + state.whatIf.playoff.length,
+          total: 48,
+        };
+      }
+
+      function ifQualifierDone() {
+        return ifDirectSelectionComplete() && state.whatIf.playoff.length === 2;
+      }
+
+      function ifPlayoffCandidates() {
+        normaliseIfQualifierState();
+        const directlyQualified = new Set(Object.values(state.whatIf.qualifiers).flat());
+        return state.data.whatIfConfig.regions.flatMap((region) => region.teams).filter((team) => !directlyQualified.has(team));
       }
 
       function ifQualifiedTeams() {
-        if (!allIfQualifierMatches().every(ifMatchComplete)) return [];
+        if (!ifQualifierDone()) return [];
+        const regionalQueues = state.data.whatIfConfig.regions.map((region) => [...state.whatIf.qualifiers[region.id]]);
         const qualified = [];
-        state.data.whatIfConfig.regions.forEach((region) => {
-          if (region.format === "pairs") qualified.push(...ifPairMatches(region).map(ifWinner));
-          if (region.format === "league") qualified.push(...ifLeagueTable(region.teams, ifLeagueMatches(region)).slice(0, region.slots).map((row) => row.team));
-          if (region.format === "bracket") qualified.push(ifWinner(ifOfcMatches(region).final));
-        });
-        qualified.push(...ifWorldPlayoffMatches().map(ifWinner));
-        return unique(qualified);
+        while (regionalQueues.some((queue) => queue.length)) {
+          regionalQueues.forEach((queue) => {
+            if (queue.length) qualified.push(queue.shift());
+          });
+        }
+        return [...qualified, ...state.whatIf.playoff];
       }
 
       function ifGroups() {
@@ -3500,6 +3649,7 @@ function renderPage() {
       }
 
       function ifProgress(matches) {
+        if (!Array.isArray(matches)) return matches;
         return {
           done: matches.filter(ifMatchComplete).length,
           total: matches.length,
@@ -3541,24 +3691,36 @@ function renderPage() {
       }
 
       function renderIfQualifiers() {
+        normaliseIfQualifierState();
         const regions = state.data.whatIfConfig.regions.map((region, index) => {
-          const matches = ifRegionMatches(region);
-          const table = region.format === "league" ? renderIfTable(ifLeagueTable(region.teams, matches), region.slots) : "";
-          return '<details class="if-region"' + (index < 2 ? " open" : "") + '><summary>' + region.id +
-            '<span>' + renderIfProgress(matches) + ' · ' + t("ifSlots", { count: region.slots }) + '</span></summary>' +
-            table + '<div class="if-match-grid">' + matches.map(renderIfMatch).join("") + '</div></details>';
+          const selected = state.whatIf.qualifiers[region.id];
+          const full = selected.length >= region.slots;
+          return '<details class="if-region" data-if-section="region-' + region.id + '"' + (index < 2 ? " open" : "") + '><summary>' + region.id +
+            '<span>' + t("ifSelected", { done: selected.length, total: region.slots }) + '</span></summary>' +
+            '<p class="if-selection-note">' + t("ifSelectionHint", { count: region.slots }) + '</p>' +
+            '<div class="if-team-picker">' + region.teams.map((team) => renderIfQualifierChoice(region.id, team, selected.includes(team), full && !selected.includes(team))).join("") + '</div></details>';
         }).join("");
-        const playoffs = ifWorldPlayoffMatches();
+        const playoffReady = ifDirectSelectionComplete();
+        const playoffSelected = state.whatIf.playoff;
         return '<div class="notice">' + t("ifSimplified") + '</div><div class="if-region-list">' + regions +
-          '<details class="if-region" open><summary>' + t("ifWorldPlayoff") + '<span>' + renderIfProgress(playoffs) + '</span></summary>' +
-          '<div class="if-match-grid">' + playoffs.map(renderIfMatch).join("") + '</div></details></div>';
+          '<details class="if-region" data-if-section="playoff" open><summary>' + t("ifWorldPlayoff") + '<span>' +
+          t("ifSelected", { done: playoffSelected.length, total: 2 }) + '</span></summary>' +
+          '<p class="if-selection-note">' + t("ifPlayoffHint") + '</p><div class="if-team-picker">' +
+          ifPlayoffCandidates().map((team) => renderIfQualifierChoice("PLAYOFF", team, playoffSelected.includes(team), !playoffReady || (playoffSelected.length >= 2 && !playoffSelected.includes(team)))).join("") +
+          '</div></details></div>';
+      }
+
+      function renderIfQualifierChoice(regionId, team, selected, disabled) {
+        return '<button class="if-team-choice' + (selected ? " selected" : "") + '" data-if-qualifier-region="' + regionId +
+          '" data-if-qualifier-team="' + team + '" type="button" aria-pressed="' + (selected ? "true" : "false") + '"' + (disabled ? " disabled" : "") + '>' +
+          '<span class="choice-flag"><img src="' + ifTeamFlagImage(team) + '" alt="" loading="lazy"></span><span>' + escapeHtml(ifTeamName(team)) + '</span></button>';
       }
 
       function renderIfGroups() {
         const groups = ifGroups();
         return '<div class="if-group-list">' + Object.entries(groups).map(([group, teams], index) => {
           const matches = ifGroupMatches(group, teams);
-          return '<details class="if-group"' + (index < 2 ? " open" : "") + '><summary>' + labelStage("Group " + group) +
+          return '<details class="if-group" data-if-section="group-' + group + '"' + (index < 2 ? " open" : "") + '><summary>' + labelStage("Group " + group) +
             '<span>' + renderIfProgress(matches) + '</span></summary>' +
             renderIfTable(ifLeagueTable(teams, matches), 2) +
             '<div class="if-match-grid">' + matches.map(renderIfMatch).join("") + '</div></details>';
@@ -3572,13 +3734,13 @@ function renderPage() {
         return '<div class="if-knockout-rounds">' + rounds.map((round) => (
           '<section class="if-round"><h3>' + escapeHtml(round.label) + '</h3>' + round.matches.map(renderIfMatch).join("") + '</section>'
         )).join("") + '</div><section class="if-champion"><span>' + t("ifChampion") + '</span>' +
-          (champion ? '<strong>' + escapeHtml(ifTeamLabel(champion)) + '</strong>' : '<span>' + t("ifAwaitingChampion") + '</span>') +
+          (champion ? '<strong>' + escapeHtml(ifTeamLabel(champion)) + '</strong><button class="if-action primary" id="replayIfChampion" type="button">' + t("ifCelebrateAgain") + '</button>' : '<span>' + t("ifAwaitingChampion") + '</span>') +
           '</section>';
       }
 
       function renderWhatIf() {
-        const qualifiers = allIfQualifierMatches();
-        const qualifierDone = qualifiers.every(ifMatchComplete);
+        const qualifiers = ifQualifierProgress();
+        const qualifierDone = ifQualifierDone();
         const groups = allIfGroupMatches();
         const groupDone = qualifierDone && groups.length === 72 && groups.every(ifMatchComplete);
         const phases = [
@@ -3593,7 +3755,8 @@ function renderPage() {
           '<button class="if-action primary" id="ifAutoFill" type="button">' + t("ifAutoFill") + '</button>' +
           '<button class="if-action" id="ifReset" type="button">' + t("ifReset") + '</button></div></header>' +
           '<div class="if-phases">' + phases.map(([phase, key, matches, enabled]) => (
-            '<button class="if-phase ' + (state.whatIf.phase === phase ? "active" : "") + '" data-if-phase="' + phase + '" type="button"' + (enabled ? "" : " disabled") + '><strong>' + t(key) + '</strong><span>' + renderIfProgress(matches) + '</span></button>'
+            '<button class="if-phase ' + (state.whatIf.phase === phase ? "active" : "") + '" data-if-phase="' + phase + '" type="button"' + (enabled ? "" : " disabled") + '><strong>' + t(key) + '</strong><span>' +
+            (phase === "qualifiers" ? t("ifSelected", matches) : renderIfProgress(matches)) + '</span></button>'
           )).join("") + '</div>' + activeBody + '</section>';
       }
 
@@ -3640,23 +3803,51 @@ function renderPage() {
 
       function bindSpecialViewEvents(root) {
         root.querySelector("#replayCelebration")?.addEventListener("click", showCelebration);
+        root.querySelector("#replayIfChampion")?.addEventListener("click", () => {
+          const champion = ifSimulationChampion();
+          if (champion) showIfChampion(champion);
+        });
         root.querySelectorAll("[data-if-phase]").forEach((button) => button.addEventListener("click", () => {
           state.whatIf.phase = button.dataset.ifPhase;
           saveCache();
           render();
         }));
+        root.querySelectorAll("[data-if-qualifier-team]").forEach((button) => button.addEventListener("click", onIfQualifierChoice));
         root.querySelectorAll("[data-if-match]").forEach((input) => input.addEventListener("change", onIfScoreChange));
         root.querySelectorAll("[data-if-winner]").forEach((select) => select.addEventListener("change", onIfWinnerChange));
         root.querySelector("#ifAutoFill")?.addEventListener("click", autoFillIfPhase);
         root.querySelector("#ifReset")?.addEventListener("click", () => {
           if (!window.confirm(t("ifResetConfirm"))) return;
-          state.whatIf = { phase: "qualifiers", scores: {} };
+          state.whatIf = {
+            phase: "qualifiers",
+            scores: {},
+            qualifiers: {},
+            playoff: [],
+            celebratedChampion: "",
+          };
           saveCache();
           render();
         });
       }
 
+      function onIfQualifierChoice(event) {
+        normaliseIfQualifierState();
+        const regionId = event.currentTarget.dataset.ifQualifierRegion;
+        const team = event.currentTarget.dataset.ifQualifierTeam;
+        const selected = regionId === "PLAYOFF" ? state.whatIf.playoff : state.whatIf.qualifiers[regionId];
+        const limit = regionId === "PLAYOFF" ? 2 : state.data.whatIfConfig.regions.find((region) => region.id === regionId)?.slots || 0;
+        const index = selected.indexOf(team);
+        if (index >= 0) selected.splice(index, 1);
+        else if (selected.length < limit) selected.push(team);
+        normaliseIfQualifierState();
+        clearIfScores(["IF-G-", "IF-KO-", "IF-Q-", "IF-PO-"]);
+        state.whatIf.celebratedChampion = "";
+        saveCache();
+        requestAnimationFrame(render);
+      }
+
       function onIfScoreChange(event) {
+        const previousChampion = ifSimulationChampion();
         const id = event.target.dataset.ifMatch;
         const side = event.target.dataset.ifSide;
         const value = event.target.value === "" ? null : Math.max(0, Math.min(30, Number(event.target.value)));
@@ -3664,18 +3855,23 @@ function renderPage() {
         if (value === null || !Number.isInteger(value)) delete state.whatIf.scores[id][side];
         else state.whatIf.scores[id][side] = value;
         clearIfDownstream(id);
-        saveCache();
-        requestAnimationFrame(render);
+        finishIfMutation(previousChampion);
       }
 
       function onIfWinnerChange(event) {
+        const previousChampion = ifSimulationChampion();
         const id = event.target.dataset.ifWinner;
         state.whatIf.scores[id] = state.whatIf.scores[id] || {};
         if (event.target.value) state.whatIf.scores[id].winner = event.target.value;
         else delete state.whatIf.scores[id].winner;
         clearIfDownstream(id);
-        saveCache();
-        requestAnimationFrame(render);
+        finishIfMutation(previousChampion);
+      }
+
+      function clearIfScores(prefixes) {
+        Object.keys(state.whatIf.scores).forEach((key) => {
+          if (prefixes.some((prefix) => key.startsWith(prefix))) delete state.whatIf.scores[key];
+        });
       }
 
       function clearIfDownstream(id) {
@@ -3699,6 +3895,25 @@ function renderPage() {
         });
       }
 
+      function ifSimulationChampion() {
+        const final = allIfKnockoutMatches().find((match) => match.id === "IF-KO-FINAL");
+        return final ? ifWinner(final) : "";
+      }
+
+      function finishIfMutation(previousChampion) {
+        const champion = ifSimulationChampion();
+        if (!champion) state.whatIf.celebratedChampion = "";
+        saveCache();
+        requestAnimationFrame(() => {
+          render();
+          if (champion && champion !== previousChampion && champion !== state.whatIf.celebratedChampion) {
+            state.whatIf.celebratedChampion = champion;
+            saveCache();
+            showIfChampion(champion);
+          }
+        });
+      }
+
       function deterministicIfScore(match) {
         let hash = 0;
         const source = match.id + match.home + match.away;
@@ -3710,10 +3925,21 @@ function renderPage() {
 
       function autoFillIfPhase() {
         const phase = state.whatIf.phase;
+        const previousChampion = ifSimulationChampion();
+        if (phase === "qualifiers") {
+          state.whatIf.qualifiers = Object.fromEntries(state.data.whatIfConfig.regions.map((region) => [region.id, region.teams.slice(0, region.slots)]));
+          normaliseIfQualifierState();
+          state.whatIf.playoff = ifPlayoffCandidates().slice(0, 2);
+          clearIfScores(["IF-G-", "IF-KO-", "IF-Q-", "IF-PO-"]);
+          state.whatIf.celebratedChampion = "";
+          saveCache();
+          render();
+          return;
+        }
         let guard = 0;
         while (guard < 10) {
           guard += 1;
-          const matches = phase === "qualifiers" ? allIfQualifierMatches() : phase === "groups" ? allIfGroupMatches() : allIfKnockoutMatches();
+          const matches = phase === "groups" ? allIfGroupMatches() : allIfKnockoutMatches();
           let changed = false;
           matches.forEach((match) => {
             if (!match.home || !match.away || ifMatchComplete(match)) return;
@@ -3722,27 +3948,40 @@ function renderPage() {
           });
           if (!changed) break;
         }
-        saveCache();
-        render();
+        finishIfMutation(previousChampion);
       }
 
       function showCelebration() {
         const dialog = document.querySelector("#championDialog");
         if (!dialog.open) dialog.showModal();
-        startCelebration();
+        startCelebration("#celebrationCanvas", "#championDialog", ["#ffcf31", "#c60b1e", "#ffffff", "#f28c28", "#ffeb7a"]);
       }
 
-      function startCelebration() {
+      function showIfChampion(team) {
+        const dialog = document.querySelector("#ifChampionDialog");
+        const flag = document.querySelector("#ifChampionFlag");
+        document.querySelector("#ifChampionFlagFallback").textContent = ifTeamFlag(team);
+        flag.hidden = false;
+        flag.alt = ifTeamName(team);
+        flag.onerror = () => { flag.hidden = true; };
+        flag.src = ifTeamFlagImage(team);
+        document.querySelector("#ifChampionTitle").textContent = t("ifChampionCongrats", { team: ifTeamName(team) });
+        document.querySelector("#ifChampionText").textContent = t("ifChampionText", { team: ifTeamName(team) });
+        document.querySelector("#closeIfChampion").textContent = t("ifChampionContinue");
+        if (!dialog.open) dialog.showModal();
+        startCelebration("#ifChampionCanvas", "#ifChampionDialog", ["#ffd447", "#ffffff", "#21d4a7", "#e52d62", "#36a9ff"]);
+      }
+
+      function startCelebration(canvasSelector, dialogSelector, colors) {
         cancelAnimationFrame(celebrationFrame);
         if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-        const canvas = document.querySelector("#celebrationCanvas");
+        const canvas = document.querySelector(canvasSelector);
         const context = canvas.getContext("2d");
         const rect = canvas.getBoundingClientRect();
         const ratio = Math.min(window.devicePixelRatio || 1, 2);
         canvas.width = Math.max(1, Math.round(rect.width * ratio));
         canvas.height = Math.max(1, Math.round(rect.height * ratio));
         context.setTransform(ratio, 0, 0, ratio, 0, 0);
-        const colors = ["#ffcf31", "#c60b1e", "#ffffff", "#f28c28", "#ffeb7a"];
         const confetti = Array.from({ length: 130 }, () => ({
           x: Math.random() * rect.width,
           y: -Math.random() * rect.height,
@@ -3799,7 +4038,7 @@ function renderPage() {
           });
           context.globalAlpha = 1;
           sparks = sparks.filter((spark) => spark.life > 0);
-          if (elapsed < 7200 && document.querySelector("#championDialog").open) celebrationFrame = requestAnimationFrame(draw);
+          if (elapsed < 7200 && document.querySelector(dialogSelector).open) celebrationFrame = requestAnimationFrame(draw);
         }
         celebrationFrame = requestAnimationFrame(draw);
       }
@@ -4357,6 +4596,16 @@ function renderPage() {
         }).join("") || '<p>' + t("slotDecided") + '</p>';
       }
 
+      function currentSyncMessage() {
+        if (!state.syncMessageKey) return state.syncMessage;
+        if (state.syncMessageKey === "cachedAt") {
+          return t("cachedAt", {
+            time: state.lastUpdated ? new Date(state.lastUpdated).toLocaleString(currentLocale()) : t("neverSynced"),
+          });
+        }
+        return t(state.syncMessageKey, state.syncMessageParams || {});
+      }
+
       function renderMeta() {
         document.documentElement.lang = state.language === "zh" ? "zh-CN" : state.language;
         document.title = t("appTitle");
@@ -4377,7 +4626,7 @@ function renderPage() {
         document.querySelector("#closeCelebration").textContent = t("celebrationContinue");
         document.querySelector("#languageSelect").value = state.language;
         document.querySelector("#lastUpdated").textContent = t("lastUpdated", { time: state.lastUpdated ? new Date(state.lastUpdated).toLocaleString(currentLocale()) : t("neverSynced") });
-        document.querySelector("#syncStatus").textContent = state.syncMessage;
+        document.querySelector("#syncStatus").textContent = currentSyncMessage();
         const counts = state.data.matches.reduce((acc, match) => {
           acc[match.status] = (acc[match.status] || 0) + 1;
           return acc;
@@ -4406,22 +4655,30 @@ function renderPage() {
 
       function captureScrollState() {
         const bracket = document.querySelector(".bracket-viewport");
+        const ifSections = [...document.querySelectorAll("details[data-if-section]")];
         return {
           x: window.scrollX,
           y: window.scrollY,
           bracketLeft: bracket ? bracket.scrollLeft : 0,
           bracketTop: bracket ? bracket.scrollTop : 0,
+          ifOpenSections: ifSections.length ? ifSections.filter((section) => section.open).map((section) => section.dataset.ifSection) : null,
         };
       }
 
       function restoreScrollState(scrollState) {
         requestAnimationFrame(() => {
-          window.scrollTo(scrollState.x, scrollState.y);
+          if (scrollState.ifOpenSections) {
+            const openSections = new Set(scrollState.ifOpenSections);
+            document.querySelectorAll("details[data-if-section]").forEach((section) => {
+              section.open = openSections.has(section.dataset.ifSection);
+            });
+          }
           const bracket = document.querySelector(".bracket-viewport");
           if (bracket) {
             bracket.scrollLeft = scrollState.bracketLeft;
             bracket.scrollTop = scrollState.bracketTop;
           }
+          window.scrollTo(scrollState.x, scrollState.y);
         });
       }
 
@@ -4466,6 +4723,26 @@ function renderPage() {
           return payload;
         } catch (staticError) {
           throw new Error(apiError.message + "；" + t("staticCacheAlsoFailed", { message: staticError.message }));
+        }
+      }
+
+      async function loadPublishedCache() {
+        try {
+          const response = await fetch("data/sync-cache.json", { cache: "no-store" });
+          if (!response.ok) return;
+          const payload = await response.json();
+          if (!Array.isArray(payload.matches) || !payload.matches.length) return;
+          const publishedAt = Date.parse(payload.fetchedAt || "");
+          const localAt = Date.parse(state.lastUpdated || "");
+          if (Number.isFinite(localAt) && (!Number.isFinite(publishedAt) || localAt >= publishedAt)) return;
+          mergeUpdates(payload, true);
+          state.lastUpdated = payload.fetchedAt || new Date().toISOString();
+          state.syncMessageKey = "syncDone";
+          state.syncMessageParams = { source: payload.source || state.data.source, count: payload.updatedMatches || payload.matches.length };
+          saveCache();
+          render();
+        } catch (error) {
+          console.info("Published cache unavailable", error.message);
         }
       }
 
@@ -4535,9 +4812,13 @@ function renderPage() {
           state.predictions = cached.predictions || {};
           state.seedSelections = cached.seedSelections || {};
           if (cached.whatIf && cached.whatIf.scores) {
+            const hasDirectSelections = cached.whatIf.qualifiers && typeof cached.whatIf.qualifiers === "object";
             state.whatIf = {
               phase: ["qualifiers", "groups", "knockout"].includes(cached.whatIf.phase) ? cached.whatIf.phase : "qualifiers",
-              scores: cached.whatIf.scores,
+              scores: hasDirectSelections ? cached.whatIf.scores : {},
+              qualifiers: hasDirectSelections ? cached.whatIf.qualifiers : {},
+              playoff: hasDirectSelections && Array.isArray(cached.whatIf.playoff) ? cached.whatIf.playoff : [],
+              celebratedChampion: hasDirectSelections ? cached.whatIf.celebratedChampion || "" : "",
             };
           }
           state.lastUpdated = cached.lastUpdated || null;
@@ -4591,6 +4872,7 @@ function renderPage() {
       }
 
       loadCache();
+      normaliseIfQualifierState();
       normaliseKnockoutState();
       document.querySelector("#syncButton").addEventListener("click", syncData);
       document.querySelector("#languageSelect").addEventListener("change", (event) => {
@@ -4607,7 +4889,10 @@ function renderPage() {
         render();
       });
       document.querySelector("#championDialog").addEventListener("close", () => cancelAnimationFrame(celebrationFrame));
+      document.querySelector("#closeIfChampion").addEventListener("click", () => document.querySelector("#ifChampionDialog").close());
+      document.querySelector("#ifChampionDialog").addEventListener("close", () => cancelAnimationFrame(celebrationFrame));
       render();
+      loadPublishedCache();
       try {
         if (!sessionStorage.getItem(celebrationKey)) {
           sessionStorage.setItem(celebrationKey, "shown");
